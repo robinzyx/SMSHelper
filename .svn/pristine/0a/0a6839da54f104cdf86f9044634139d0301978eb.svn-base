@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mDoorItem"
+    android:layout_width="fill_parent"
+    android:layout_height="80dip"
+    android:background="@drawable/reply_method_item_selector">
+	<ImageView 
+	    android:id="@+id/mDoorIcon"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerVertical="true"
+	    android:layout_marginLeft="1dip"
+	    />
+    <TextView
+        android:id="@+id/mDoorDisplay"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/mDoorIcon"
+        android:layout_margin="3dip"
+        android:textSize="20dip"/>
+    <TextView 
+        android:id="@+id/mDoorNote"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/mDoorDisplay"
+        />
+</RelativeLayout>

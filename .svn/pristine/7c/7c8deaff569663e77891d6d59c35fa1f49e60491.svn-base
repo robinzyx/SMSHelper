@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/hometabs"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/adblock_scanning_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/frame_upper_background" >
+
+            <TextView
+                android:id="@+id/mMainBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/main_back_selector"
+                android:gravity="center"
+                android:text="@string/main_back"
+                android:textColor="@color/white"
+                android:layout_marginLeft="5dip" />
+
+            <TextView
+                android:id="@+id/mMainTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/sms_forward_sms_item"
+                android:textColor="#ffffff"
+                android:textSize="20dip" />
+            
+            <TextView
+                android:id="@+id/mMainSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/main_back_selector"
+                android:gravity="center"
+                android:text="@string/sms_forward_setting"
+                android:textColor="@color/white"
+                android:layout_marginRight="5dip" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <TextView 
+            android:id="@+id/mSmsForwardDetailFresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dip"
+            android:text="@string/fresh"
+            android:background="@drawable/life_action"
+            android:gravity="center"
+            android:visibility="invisible"
+            />
+        <ProgressBar
+            android:id="@+id/mSmsForwardDetailProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/mSmsForwardDetailFresh"
+            style="?android:attr/progressBarStyleSmall"
+            android:indeterminate="true"
+            android:layout_marginRight="5dip"
+            android:visibility="invisible"
+            />
+		<RelativeLayout
+		    android:id="@+id/mSmsForwardDetailUserNumberLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView 
+                android:id="@+id/mSmsForwardDetailUserNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mSmsForwardDetailUserPointLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mSmsForwardDetailUserNumberLayout">
+            <TextView 
+                android:id="@+id/mSmsForwardDetailUserPoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/mSmsForwardDetailUserRankLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mSmsForwardDetailUserPointLayout">
+        	<TextView
+                android:id="@+id/mSmsForwardDetailUserRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dip"
+                />
+        </RelativeLayout>
+        </RelativeLayout>
+        <ListView 
+            android:id="@+id/mSmsForwardDetailItemList"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            />
+    </LinearLayout>
+	<RelativeLayout
+	    android:id="@+id/mSmsForwardLogining"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:visibility="invisible">
+        <ProgressBar
+            android:id="@+id/mSmsForwardProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+        <TextView 
+            android:id="@+id/mSmsForwardProgressNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mSmsForwardProgress"
+            android:text="@string/sms_forward_login_progress"
+            />
+    </RelativeLayout>
+</FrameLayout>

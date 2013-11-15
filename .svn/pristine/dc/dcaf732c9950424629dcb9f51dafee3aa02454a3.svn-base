@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/main_screen_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dip"
+        android:layout_marginTop="5dip"
+        android:background="#00000000" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+    </RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+        <ImageView 
+            android:id="@+id/mScrollToLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="20dip"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/arrows_back"
+            />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_toRightOf="@id/mScrollToLeft"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/hometabs"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dip"
+                android:layout_marginTop="15dip"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainGSendLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainGSend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/multi"
+                            android:gravity="center"
+                            android:text="@string/main_gsend"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainFSendLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainFSend"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/group"
+                            android:gravity="center"
+                            android:text="@string/main_fsend"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dip"
+                android:layout_marginTop="3dip"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainManualLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainManual"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/man"
+                            android:gravity="center"
+                            android:text="@string/main_manual"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainAutoReplyLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainAutoReply"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/auto"
+                            android:gravity="center"
+                            android:text="@string/main_autoreply"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dip"
+                android:layout_marginTop="3dip"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainSmsLibLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainSmsLib"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/library"
+                            android:gravity="center"
+                            android:text="@string/main_smslib"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+				<RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainSubsmsLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainSubsms"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/subsms"
+                            android:gravity="center"
+                            android:text="@string/main_subsms"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="33dip"
+                android:layout_marginTop="3dip"
+                android:orientation="horizontal" >
+				
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainSmsForwardLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainSmsForward"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/sms_forward"
+                            android:gravity="center"
+                            android:text="@string/main_sms_forward"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+				
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dip"
+                    android:layout_marginRight="2dip"
+                    android:layout_weight="1" >
+
+                    <RelativeLayout
+                        android:id="@+id/mMainIndividualLayout"
+                        android:layout_width="120dip"
+                        android:layout_height="120dip"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/disk_selector" >
+
+                        <TextView
+                            android:id="@+id/mMainIndividual"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableTop="@drawable/sign"
+                            android:gravity="center"
+                            android:text="@string/main_individual"
+                            android:textColor="#ffffff"
+                            android:textSize="15dip" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+	</RelativeLayout>
+</LinearLayout>

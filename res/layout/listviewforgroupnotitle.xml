@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/adblock_scanning_bg"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/bottom"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:stretchColumns="2" >
+
+                <TableRow android:gravity="center_horizontal" >
+
+                    <Button
+                        android:id="@+id/btn_add"
+                        android:layout_marginBottom="3dip"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/send_selector"
+                        android:text="@string/select_ok"
+                        android:textColor="@color/white"
+                        android:textSize="18dip"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_back"
+                        android:layout_marginBottom="3dip"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/send_selector"
+                        android:text="@string/select_cancel"
+                        android:textColor="@color/white"
+                        android:textSize="18dip"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@id/android:list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@id/bottom"
+            android:cacheColorHint="#00000000"
+            android:drawSelectorOnTop="false"
+            android:nextFocusUp="@+id/edit" />
+    </RelativeLayout>
+
+</LinearLayout>

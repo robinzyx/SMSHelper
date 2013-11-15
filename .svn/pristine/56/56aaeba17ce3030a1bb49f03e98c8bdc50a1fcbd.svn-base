@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mFrameUpper"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+    
+   <FrameLayout 
+  	android:id="@+id/mPlayMusicUpper"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	android:orientation="horizontal"
+  	android:background="@drawable/frame_upper_background"
+  	android:layout_alignParentTop="true">
+  	<Button 
+  		android:id="@+id/frame_top_left"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_gravity="left|center_vertical"
+  		android:visibility="invisible"
+  		/>
+  	<TextView 
+  		android:id="@+id/frame_top_middle"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_gravity="center"/>
+  	<Button 
+  		android:id="@+id/frame_top_right"
+  		android:layout_width="wrap_content"
+  		android:layout_height="wrap_content"
+  		android:layout_gravity="right|center_vertical"
+  		android:visibility="invisible"
+  		/>
+  </FrameLayout>
+  <LinearLayout
+    	android:id="@+id/mTest"
+    	android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="vertical"
+    	android:background="#ffffff"
+    	android:layout_weight="1"
+    	/>
+</LinearLayout>

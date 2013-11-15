@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dip"
+    android:orientation="horizontal"
+    android:background="@drawable/list_view_item_60" >
+	<TextView 
+	    android:id="@+id/mStaticDetailIntro"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dip"
+	    android:layout_marginRight="10dip"
+	    android:layout_gravity="center_vertical"
+	    android:textColor="@android:color/black"
+        android:textSize="18dip"
+	    />
+</LinearLayout>

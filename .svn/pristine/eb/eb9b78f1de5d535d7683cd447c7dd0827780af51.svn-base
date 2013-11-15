@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/adblock_scanning_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/mTopLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_upper_background" >
+
+        <TextView
+            android:id="@+id/mMainBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/main_back_selector"
+            android:gravity="center"
+            android:text="@string/main_back"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/main_autoreply"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" >
+
+        <CheckBox
+            android:id="@+id/mAutoReplySwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/mEnableAutoReply"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mAutoReplySwitch"
+            android:text="@string/set_autoreply_on"
+            android:textSize="18dip" />
+    </RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="10dip">
+        <CheckBox
+            android:id="@+id/mAutoReplyByTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"/>
+        <TextView 
+            android:id="@+id/mAutoReplyByTimeEnabled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/mAutoReplyByTime"
+            android:layout_centerVertical="true"
+            android:text="@string/auto_reply_by_time_enabled"
+            android:textSize="18dip"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView 
+                android:id="@+id/mAutoReplyByTimeBeginNote"
+                android:layout_width="90dip"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_reply_by_time_begin"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/autoreply_choose_selector"
+                android:gravity="center"
+                android:textSize="18dip"/>
+            <TextView 
+                android:id="@+id/mAutoReplyByTimeBeginTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mAutoReplyByTimeBeginNote"
+                android:layout_centerHorizontal="true"
+                android:text="@string/auto_reply_by_time_no"
+                android:textSize="18dip"
+                />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView 
+                android:id="@+id/mAutoReplyByTimeEndNote"
+                android:layout_width="90dip"
+                android:layout_height="wrap_content"
+                android:text="@string/auto_reply_by_time_end"
+                android:background="@drawable/autoreply_choose_selector"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:minLines="2"
+                android:textSize="18dip"/>
+            <TextView 
+                android:id="@+id/mAutoReplyByTimeEndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/mAutoReplyByTimeEndNote"
+                android:layout_centerHorizontal="true"
+                android:text="@string/auto_reply_by_time_no"
+                android:textSize="18dip"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" >
+
+        <TextView
+            android:id="@+id/AutoReplyTimeTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/auto_reply_delay_note"
+            android:textSize="18dip" />
+
+        <EditText
+            android:id="@+id/AutoReplyTimeEt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/AutoReplyTimeTv"
+            android:inputType="number|phone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mAutoReplyContentLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dip"
+        android:layout_marginRight="10dip" >
+
+        <TextView
+            android:id="@+id/mAutoReplyChoose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/autoreply_choose_selector"
+            android:gravity="center"
+            android:text="@string/autoreply_choose"
+            android:textColor="#ffffff"
+            android:textSize="16dip" />
+
+        <EditText
+            android:id="@+id/mAutoReplyMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/mAutoReplyChoose"
+            android:textSize="16dip" />
+    </RelativeLayout>
+	
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+		
+        <TextView
+            android:id="@+id/mAutoReplyKey"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:text="@string/auto_key"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/mAutoReplyKeyWords"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dip"
+            android:layout_toRightOf="@id/mAutoReplyKey"
+            android:text="@string/key_words"
+            android:textSize="16dip" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mIndividualDetailSettingText"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:textColor="@android:color/black"
+    android:background="@drawable/reply_method_item_selector"
+    android:layout_gravity="center_vertical"
+    android:layout_marginLeft="10dip"
+    android:layout_marginRight="10dip"
+    android:paddingLeft="10dip"
+    android:gravity="center_vertical"
+    android:textSize="18dip" >
+</TextView>
+<!-- <ListView 
+	    android:id="@+id/mIndividualDetailSettingList"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    /> -->

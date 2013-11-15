@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/com/ginwave/smshelper/HolidayDataSource.java=GBK
+encoding//src/com/ginwave/smshelper/SMSLibsSendActivity.java=UTF-8
+encoding//src/com/ginwave/smshelper/SmsSendByGroup.java=UTF-8
+encoding//src/com/ginwave/smshelper/localsms/LocalSmsSendActivity.java=UTF-8
+encoding//src/com/ginwave/smshelper/localsms/SmsOnePersonReader.java=UTF-8
+encoding//src/com/ginwave/smshelper/more/MessageReceiver.java=UTF-8
+encoding/<project>=UTF-8

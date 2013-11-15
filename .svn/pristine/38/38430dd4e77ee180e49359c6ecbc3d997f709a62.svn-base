@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mListSayMeItem"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <TextView 
+	        android:id="@+id/mStaticsDate"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="3dip"
+	        android:layout_marginTop="3dip"
+	        />
+	    <TextView 
+	        android:id="@+id/mStaticsNumber"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="3dip"
+	        android:layout_marginTop="3dip"
+	        />
+	</RelativeLayout>
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content">
+	    <CheckBox
+            android:id="@+id/mStaticsChecked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dip"
+            android:clickable="false"
+            android:focusable="false"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true" >
+        </CheckBox>
+		<TextView 
+		    android:id="@+id/mStaticsMessage"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_toLeftOf="@id/mStaticsChecked"
+		    android:layout_marginLeft="3dip"
+		    android:layout_marginRight="3dip"
+		    android:textColor="@android:color/black"
+	        android:textSize="16dip"
+	        android:layout_centerVertical="true"
+		    />
+	</RelativeLayout>
+</LinearLayout>

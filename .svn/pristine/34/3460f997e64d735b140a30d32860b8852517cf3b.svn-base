@@ -1,0 +1,60 @@
+package com.ginwave.smshelper.db.test;
+
+import java.util.List;
+import java.util.Map;
+
+import android.test.AndroidTestCase;
+import android.util.Log;
+
+import com.ginwave.smshelper.dao.HolidayDao;
+import com.ginwave.smshelper.dao.SmsDao;
+import com.ginwave.smshelper.db.DbOpenHelper;
+import com.ginwave.smshelper.service.HolidayService;
+import com.ginwave.smshelper.service.SmsService;
+
+public class MyTest extends AndroidTestCase {
+	public MyTest() {
+
+	}
+
+	public void createDb() {
+		DbOpenHelper helper = new DbOpenHelper(getContext());
+		helper.getWritableDatabase();
+
+	}
+
+	public void insertDB() {
+		HolidayService service = new HolidayDao(getContext());
+		Object[] params = { "元旦", "介绍", "由来", "习俗", "诗歌资料" };
+		boolean flag = service.addHoliday(params);
+		System.out.println("--->>" + flag);
+
+		SmsService service1 = new SmsDao(getContext());
+		Object[] params1 = { "春雪 韩愈  \n\r新年都未有芳华， \n\r二月初惊见草芽。\n\r白雪却嫌春色晚，\n\r故穿庭树作飞花。\n\r春思 皇甫冉 \n\r莺啼燕语报新年，马邑龙堆路几千。 \n\r家住层城邻汉苑，心随明月到胡天。 \n\r机中锦字论长恨，楼上花枝笑独眠。\n\r为问元戎窦车骑，何时返旆勒燕然。\n\r戏答元珍 欧阳修\n\r春风疑不到天涯，二月山城未见花。\n\r残雪压枝犹有桔，冻雷惊笋欲抽芽。\n\r夜闻归雁生乡思，病入新年感物华。\n\r曾是洛阳花下客，野芳虽晚不须嗟。\n\r元旦诗歌新年诗歌 \n\r清透的风，正从远处吹来\n\r那里有少女的香味\n\r带着野百合的私语\n\r在一瞬间绽放\n\r青涩地，爱人的手臂 \n\r温柔地缠绕，把你拥抱\n\r拨动春天的琴弦\n\r季节的距离如此" };
+
+		boolean flag1 = service1.addSms(params1);
+
+		System.out.println("--->>" + flag1);
+
+	}
+
+	public void deleteDB() {
+		HolidayService service = new HolidayDao(getContext());
+		Object[] params = { 1 };
+		boolean flag = service.addHoliday(params);
+		System.out.println("--->>" + flag);
+
+	}
+
+	public void updataDB() {
+		HolidayService service = new HolidayDao(getContext());
+		SmsService service1 = new SmsDao(getContext());
+		Object[] params = { "春节", "介绍", "春联", "民俗", "食俗", "1" };
+		Object[] params1 = {
+				"春节，即农历新年，俗称过年，一般指除夕和正月初一。但在民间，传统意义上的春节是指从腊月初八的腊祭或腊月二十三或二十四的祭灶，一直到正月十五，其中以除夕和正月初一为高潮。春节历史悠久，起源于殷商时期年头岁尾的祭神祭祖活动。在春节期间，中国的汉族和很多少数民族都要举行各种活动以示庆祝。这些活动均以祭祀神佛、祭奠祖先、除旧布新、迎禧接福、祈求丰年为主要内容。活动丰富多彩，带有浓郁的民族特色。",
+				"1" };
+		service.updateHoliday(params);
+		service1.updateSms(params1);
+	}
+
+}

@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ginwave.smshelper"
+    android:versionCode="12"
+    android:versionName="1.12" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:targetPackage="com.ginwave.smshelper" >
+    </instrumentation>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.ginwave.smshelper.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.Splash"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.AppGuide"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SkipActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.ListViewForSMSLibs"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.GridViewForSMS"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SMSLibsSendActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SMSLibsGroup"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.readcontacts.MultiContactListView"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.readcontacts.GroupListView"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.localsms.SmsReader"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.localsms.ListViewForLocalSms"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.localsms.LocalSmsSendActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.more.SettingForSMS"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.MultiSelectTab"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.HolidayGrid"
+            android:screenOrientation="portrait" />
+        <!--
+        <receiver android:name=".more.MessageReceiver" >
+             
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+             
+        </receiver>
+        -->
+        <receiver android:name="com.ginwave.smshelper.more.SettingForSMS$MessageChangeReceiver" >
+            <intent-filter>
+                <action android:name="com.ginwave.message_changed" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.ginwave.smshelper.more.ListViewForAuto"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.HolidayGridChooseSMS"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.localsms.SmsOnePersonReader"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.localsms.SmsSearchReader"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.SmsSendByGroup"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.AutoReplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.ManualReplyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.ManualReplySettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.ginwave.smshelper.readcontacts.EachGroupListView"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.Update"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+
+       
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5101075b5270154b19000030" >
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" />
+
+        <activity
+            android:name="com.ginwave.smshelper.SubSms"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+
+        <service android:name="com.ginwave.smshelper.more.AutoReplyService" >
+        </service>
+
+        <provider
+            android:name="com.ginwave.smshelper.ReplyRecordProvider"
+            android:authorities="com.ginwave.smshelper" >
+        </provider>
+
+        <activity
+            android:name="com.ginwave.smshelper.ProviderTestActivity"
+            android:screenOrientation="portrait" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.StatisticsActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.IndividualActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.IndividualDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.StatisticsDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+
+        <service android:name="com.ginwave.smshelper.more.SendMessageService" >
+        </service>
+
+        <activity
+            android:name="com.ginwave.smshelper.SmsForwardActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SmsForwardDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SmsForwardDetailItemActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SmsForwardDetailSettingActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.SmsForwardRegisterActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.HolidayGridSendMms"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.DoorActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.LifeActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.LifeDetailActivity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.readcontacts.MultiContactListViewNoTitle"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.readcontacts.GroupListViewNoTitle"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.FlowActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+<activity
+            android:name="SplashPhone">
+            </activity>
+        <uses-library android:name="android.test.runner" />
+
+        <activity
+            android:name="com.ginwave.smshelper.PhoneActivity"
+            android:label="@string/title_activity_phone" >
+        </activity>
+        <activity
+            android:name="com.ginwave.smshelper.Splash1"
+            android:label="@string/title_activity_splash1" >
+        </activity>
+    </application>
+
+</manifest>

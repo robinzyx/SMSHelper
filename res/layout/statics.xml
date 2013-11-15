@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hometabs"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+	<RelativeLayout
+	    android:id="@+id/mUpperLayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/frame_upper_background" >
+
+	    <TextView
+	        android:id="@+id/mMainBack"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/main_back_selector"
+	        android:gravity="center"
+	        android:text="@string/main_back"
+	        android:textColor="@color/white" />
+
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="@string/main_statics"
+	        android:textColor="#ffffff"
+	        android:textSize="20dip" />
+
+	    <TextView
+	        android:id="@+id/mMainClear"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:background="@drawable/main_back_selector"
+	        android:gravity="center"
+	        android:text="@string/clear"
+	        android:textColor="@color/white" />
+	    
+	</RelativeLayout>
+	<LinearLayout
+            android:id="@+id/mBottomLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:visibility="invisible" >
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:stretchColumns="2" >
+
+                <TableRow android:gravity="center_horizontal" >
+
+                    <Button
+                        android:id="@+id/mStaticsAdd"
+                        android:layout_marginBottom="3dip"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/send_selector"
+                        android:text="@string/select_ok"
+                        android:textColor="@color/white"
+                        android:textSize="18dip"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/mStaticsBack"
+                        android:layout_marginBottom="3dip"
+                        android:layout_marginLeft="5dip"
+                        android:layout_marginRight="5dip"
+                        android:layout_weight="1"
+                        android:background="@drawable/send_selector"
+                        android:text="@string/select_cancel"
+                        android:textColor="@color/white"
+                        android:textSize="18dip"
+                        android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    <ListView
+            android:id="@+id/mStaticsList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/mUpperLayout"
+            android:layout_above="@id/mBottomLayout"
+            android:background="#ffffff"
+            android:padding="5dip" >
+        </ListView>
+</RelativeLayout>

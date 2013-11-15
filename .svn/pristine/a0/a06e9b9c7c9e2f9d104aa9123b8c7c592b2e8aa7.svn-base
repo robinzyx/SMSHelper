@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="set_auto_controll"
+        android:summaryOff="@string/set_autoreply_off"
+        android:summaryOn="@string/set_autoreply_on"
+        android:title="@string/set_autoreply" />
+    <Preference
+        android:key="set_auto_message"
+        android:title="@string/set_autoreply_message"
+        android:summary="@string/set_autoreply_message_content"
+		android:dependency="set_auto_controll" />
+    <Preference
+        android:key="set_about"
+        android:title="@string/set_about"/>
+    <Preference
+        android:key="set_share"
+        android:title="@string/set_share"/>
+</PreferenceScreen>

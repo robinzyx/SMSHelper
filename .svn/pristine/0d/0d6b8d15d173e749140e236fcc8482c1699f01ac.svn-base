@@ -1,0 +1,431 @@
+package com.ginwave.smshelper;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import com.umeng.analytics.MobclickAgent;
+
+import com.ginwave.smshelper.localsms.SmsReader;
+import com.ginwave.smshelper.more.SetDataSource;
+import com.ginwave.smshelper.more.SettingForSMS;
+import com.ginwave.smshelper.readcontacts.GroupListView;
+import com.ginwave.smshelper.readcontacts.MultiContactListView;
+
+
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.os.Parcelable;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.LocalActivityManager;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class SkipActivity extends Activity implements OnClickListener {
+
+	private ViewPager mViewPager;
+	private BasePageAdapter mPageAdapter;
+	private List<View> mListViews;
+	private LayoutInflater mInflater;
+
+	private View layout1;
+	private View layout2;
+
+	private TextView mMainFSend;
+	private TextView mMainGSend;
+	private TextView mMainAutoReply;
+	private TextView mMainManual;
+	private TextView mMainSmsLib;
+	private TextView mMainUpdate;
+	private TextView mMainAbout;
+	private RelativeLayout mMainFSendLayout;
+	private RelativeLayout mMainGSendLayout;
+	private RelativeLayout mMainAutoReplyLayout;
+	private RelativeLayout mMainManualLayout;
+	private RelativeLayout mMainSmsLibLayout;
+	private RelativeLayout mMainAboutLayout;
+	private RelativeLayout mMainSettingLayout;
+	private RelativeLayout mMainSmsForwardLayout;
+	private RelativeLayout mMainShareLayout;
+	private RelativeLayout mMainSubsmsLayout;
+	private RelativeLayout mMainStaticsLayout;
+	private RelativeLayout mMainPhoneLayout;
+	private RelativeLayout mMainIndividualLayout;
+	private RelativeLayout mMainDoorLayout;
+	private RelativeLayout mMainLifeLayout;
+	private RelativeLayout mMainFlowLayout;
+	private ImageView mScrollToRight;
+	private ImageView mScrollToLeft;
+	private Handler handler;
+	private int mScreenWidth;
+	
+
+	/* private TextView mMainInbox; */
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.viewpager_main);
+		mScreenWidth = this.getWindow().getWindowManager().getDefaultDisplay().getWidth();
+		mViewPager = (ViewPager) findViewById(R.id.viewpager);
+		mListViews = new ArrayList<View>();
+		mInflater = getLayoutInflater();
+		mPageAdapter = new BasePageAdapter();
+		mViewPager.setAdapter(mPageAdapter);
+		
+		layout1 = mInflater.inflate(R.layout.activity_skip, null);
+		layout2 = mInflater.inflate(R.layout.viewpager_2, null);
+		mListViews.add(layout1);
+		mListViews.add(layout2);
+		mViewPager.setCurrentItem(0);
+		/*
+		 * 
+		 * mMainFSend = (TextView)findViewById(R.id.mMainFSend); mMainGSend =
+		 * (TextView)findViewById(R.id.mMainGSend); mMainAutoReply =
+		 * (TextView)findViewById(R.id.mMainAutoReply); mMainManual =
+		 * (TextView)findViewById(R.id.mMainManual); mMainSmsLib =
+		 * (TextView)findViewById(R.id.mMainSmsLib); mMainUpdate =
+		 * (TextView)findViewById(R.id.mMainUpdate); mMainAbout =
+		 * (TextView)findViewById(R.id.mMainAbout);
+		 */
+		mMainFSendLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainFSendLayout);
+		mMainGSendLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainGSendLayout);
+		mMainAutoReplyLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainAutoReplyLayout);
+		mMainManualLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainManualLayout);
+		mMainSmsLibLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainSmsLibLayout);
+		mMainSmsForwardLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainSmsForwardLayout);
+		mMainSubsmsLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainSubsmsLayout);
+		mMainIndividualLayout = (RelativeLayout) layout1
+				.findViewById(R.id.mMainIndividualLayout);
+		
+		mScrollToLeft = (ImageView)layout1
+				.findViewById(R.id.mScrollToLeft);
+
+		mMainAboutLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainAboutLayout);
+		mMainStaticsLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainStaticsLayout);
+		mMainShareLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainShareLayout);
+		mMainSettingLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainSettingLayout);
+		mMainPhoneLayout=(RelativeLayout) layout2
+				.findViewById(R.id.mMainPhoneLayout);
+		mMainDoorLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainDoorLayout);
+		mMainLifeLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainLifeLayout);
+		mMainFlowLayout = (RelativeLayout) layout2
+				.findViewById(R.id.mMainFlowLayout);
+		mScrollToRight = (ImageView) layout2
+				.findViewById(R.id.mScrollToRight);
+		
+		mScrollToRight.setOnClickListener(this);
+		mScrollToLeft.setOnClickListener(this);
+		
+		/* mMainInbox = (TextView)findViewById(R.id.mMainInbox); */
+		/*
+		 * mMainFSend.setOnClickListener(this);
+		 * mMainGSend.setOnClickListener(this);
+		 * mMainAutoReply.setOnClickListener(this);
+		 * mMainManual.setOnClickListener(this);
+		 * mMainSmsLib.setOnClickListener(this);
+		 * mMainUpdate.setOnClickListener(this);
+		 * mMainAbout.setOnClickListener(this);
+		 */
+		mMainFSendLayout.setOnClickListener(this);
+		mMainGSendLayout.setOnClickListener(this);
+		mMainAutoReplyLayout.setOnClickListener(this);
+		mMainManualLayout.setOnClickListener(this);
+		mMainSmsLibLayout.setOnClickListener(this);
+		
+		mMainAboutLayout.setOnClickListener(this);
+		mMainSettingLayout.setOnClickListener(this);
+		mMainPhoneLayout.setOnClickListener(this);
+		mMainSubsmsLayout.setOnClickListener(this);
+		mMainShareLayout.setOnClickListener(this);
+		mMainStaticsLayout.setOnClickListener(this);
+		mMainIndividualLayout.setOnClickListener(this);
+		mMainSmsForwardLayout.setOnClickListener(this);
+		mMainDoorLayout.setOnClickListener(this);
+		mMainLifeLayout.setOnClickListener(this);
+		mMainFlowLayout.setOnClickListener(this);
+
+		/* mMainInbox.setOnClickListener(this); */
+		SetDataSource.mSetAutoBegin = SetDataSource
+				.getAutoReplyFlag(getApplicationContext());
+		SetDataSource.mAutoReplyMessage = SetDataSource
+				.getAutoReplyMessage(getApplicationContext());
+
+		handler = new Handler() {
+
+			@Override
+			public void handleMessage(Message msg) {
+				switch (msg.what) {
+				case 0:
+					update();
+					break;
+				case 1:
+					finish();
+					break;
+				}
+			}
+
+		};
+		new Thread() {
+			public void run() {
+				HttpClient client = new DefaultHttpClient();
+				HttpGet httpget = new HttpGet(Update.VERSION_URL);
+
+				HttpResponse response;
+
+				try {
+					response = client.execute(httpget);
+
+					String versions = EntityUtils
+							.toString(response.getEntity());
+					String[] r = versions.split(" ");
+					Log.i("xiao", "local version = " + Integer.parseInt(Update.APP_VERSION));
+					Log.i("xiao", "version = " + Integer.parseInt(r[0]));
+					if (Integer.parseInt(Update.APP_VERSION) < Integer.parseInt(r[0])
+							&& response.getStatusLine().getStatusCode() == 200) {
+						handler.sendEmptyMessage(0);
+					}
+				} catch (ClientProtocolException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}.start();
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		Intent lIntent = new Intent();
+		if (v.equals(mMainFSendLayout)) {
+			lIntent.setClass(getApplicationContext(), GroupListView.class);
+			this.startActivity(lIntent);
+		}
+		if (v.equals(mMainGSendLayout)) {
+			lIntent.setClass(getApplicationContext(),
+					MultiContactListView.class);
+			this.startActivity(lIntent);
+		}
+		if (v.equals(mMainAutoReplyLayout)) {
+			lIntent.setClass(getApplicationContext(), AutoReplyActivity.class);
+			this.startActivity(lIntent);
+		}
+		if (v.equals(mMainManualLayout)) {
+			lIntent.setClass(getApplicationContext(), ManualReplyActivity.class);
+			this.startActivity(lIntent);
+		}
+		if (v.equals(mMainSmsLibLayout)) {
+			lIntent.setClass(getApplicationContext(), HolidayGrid.class);
+			this.startActivity(lIntent);
+		}
+		if (v.equals(mMainAboutLayout)) {
+			lIntent.setClass(getApplicationContext(), AboutActivity.class);
+			this.startActivity(lIntent);
+		}
+		if (v.equals(mMainSettingLayout)) {
+			lIntent.setClass(getApplicationContext(),
+					ManualReplySettingActivity.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mMainPhoneLayout)){
+			lIntent.setClass(getApplicationContext(), SplashPhone.class);
+			this.startActivity(lIntent);
+		}
+
+		if (v.equals(mMainShareLayout)) {
+			Intent intent = new Intent(Intent.ACTION_SEND);
+
+			intent.setType("text/plain");
+			intent.putExtra(Intent.EXTRA_SUBJECT, "分享好软");
+			intent.putExtra(Intent.EXTRA_TEXT, this.getString(R.string.set_share_content) + "http://a.10086.cn/pams2/m/s.do?gId=300002769896&c=172&j=l&p=72&src=90.620009.6673836573");
+			startActivity(Intent.createChooser(intent, getTitle()));
+		}
+		if (v.equals(mMainSubsmsLayout)) {
+			lIntent.setClass(getApplicationContext(), SubSms.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mScrollToRight)){
+			mViewPager.scrollBy(-mScreenWidth, 0);
+		}
+		if(v.equals(mScrollToLeft)){
+			mViewPager.scrollBy(mScreenWidth, 0);
+		}
+		if(v.equals(mMainStaticsLayout)){
+			lIntent.setClass(getApplicationContext(), StatisticsActivity.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mMainIndividualLayout)){
+			lIntent.setClass(getApplicationContext(), IndividualActivity.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mMainSmsForwardLayout)){
+			lIntent.setClass(getApplicationContext(), SmsForwardActivity.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mMainDoorLayout)){
+			lIntent.setClass(getApplicationContext(), DoorActivity.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mMainLifeLayout)){
+			lIntent.setClass(getApplicationContext(), LifeActivity.class);
+			this.startActivity(lIntent);
+		}
+		if(v.equals(mMainFlowLayout)){
+			lIntent.setClass(getApplicationContext(), FlowActivity.class);
+			this.startActivity(lIntent);
+		}
+		/*
+		 * if(v.equals(mMainInbox)){ lIntent.setClass(getApplicationContext(),
+		 * SmsReader.class); this.startActivity(lIntent); }
+		 */
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			AlertDialog.Builder builder = new AlertDialog.Builder(
+					SkipActivity.this);
+			builder.setTitle(R.string.exitdialog_title);
+			builder.setMessage(R.string.exitdialog_content);
+			builder.setPositiveButton(R.string.exitdialog_ok,
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							SkipActivity.this.finish();
+						}
+					});
+			builder.setNegativeButton(R.string.exitdialog_cancel,
+					new DialogInterface.OnClickListener() {
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+
+						}
+					});
+			builder.show();
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	private class BasePageAdapter extends PagerAdapter {
+
+		@Override
+		public void destroyItem(View arg0, int arg1, Object arg2) {
+			Log.d("k", "destroyItem");
+			((ViewPager) arg0).removeView(mListViews.get(arg1));
+		}
+
+		@Override
+		public void finishUpdate(View arg0) {
+			Log.d("k", "finishUpdate");
+		}
+
+		@Override
+		public int getCount() {
+			Log.d("k", "getCount");
+			return mListViews.size();
+		}
+
+		@Override
+		public Object instantiateItem(View arg0, int arg1) {
+			Log.d("k", "instantiateItem");
+			((ViewPager) arg0).addView(mListViews.get(arg1), 0);
+			return mListViews.get(arg1);
+		}
+
+		@Override
+		public boolean isViewFromObject(View arg0, Object arg1) {
+			Log.d("k", "isViewFromObject");
+			return arg0 == (arg1);
+		}
+
+		@Override
+		public void restoreState(Parcelable arg0, ClassLoader arg1) {
+			Log.d("k", "restoreState");
+		}
+
+		@Override
+		public Parcelable saveState() {
+			Log.d("k", "saveState");
+			return null;
+		}
+
+		@Override
+		public void startUpdate(View arg0) {
+			Log.d("k", "startUpdate");
+		}
+
+	}
+
+	public void update() {
+		AlertDialog dialog = new AlertDialog.Builder(SkipActivity.this)
+				.setTitle("新版本发布了")
+				.setMessage("新版本已经发布了，赶快去体验它吧。")
+				.setPositiveButton("马上更新",
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								Uri uri = Uri.parse(Update.APP_URL);
+								Intent i = new Intent(Intent.ACTION_DEFAULT,
+										uri);
+								startActivity(i);
+							}
+						}).setNegativeButton("下次再说", null).show();
+	}
+
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
+	}
+
+}

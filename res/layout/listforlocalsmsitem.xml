@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dip" >
+	<TextView 
+	    android:id="@+id/mLocalSmsIconText"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerVertical="true"
+	    android:gravity="center"
+	    android:textSize="23dip"
+	    android:textColor="#ffffff"
+	    />
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_toRightOf="@id/mLocalSmsIconText">
+	    <RelativeLayout 
+	        android:id="@+id/mRecipientLayout"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="10dip"
+	        android:layout_marginRight="10dip">
+	        <TextView 
+	            android:id="@+id/mRecipientTime"
+	            android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				android:layout_alignParentRight="true"
+				android:text="2012/01/07"
+	            />
+		    <TextView
+		        android:id="@+id/mRecipientTextview"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentLeft="true"
+		        android:layout_alignParentTop="true"
+		        android:textAppearance="?android:attr/textAppearanceMedium"
+		        android:textColor="#000000" />
+	    </RelativeLayout>
+		<RelativeLayout 
+		    android:layout_width="fill_parent"
+		    android:layout_height="fill_parent"
+		    android:layout_below="@id/mRecipientLayout"
+		    android:layout_marginLeft="10dip"
+		    android:layout_alignParentLeft="true">
+		    <TextView
+		        android:id="@+id/mSnippetTextview"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:layout_centerVertical="true"
+		        android:maxLines="2"
+		        android:ellipsize="end" />
+	    </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

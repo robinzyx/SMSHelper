@@ -1,0 +1,623 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tab1">收件箱</string>
+    <string name="tab2">短信库</string>
+    <string name="tab3">更多</string>
+    <string name="app_name">快信</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="whatfestival">为您准备了春节短信</string>
+    <string name="send_hint">请输入手机号码</string>
+    <string name="send_toast">请输入一个手机号码</string>
+    <string name="send_sending">正在发送短信...</string>
+    <string name="sendsuccess">短信发送成功</string>
+    <string name="sendsuccess_by_multi">短信发送成功，详情请见发送日志</string>
+    <string name="sending">短信正在发送，详情请见发送日志</string>
+    <string name="sendfailed">短信发送失败</string>
+    <string name="contact_empty">您的手机中没有联系人</string>
+    <string name="select_ok">确定</string>
+    <string name="select_cancel">取消</string>
+    <string name="group">群组</string>
+    <string name="send">发送</string>
+    <string name="multiselect">多选</string>
+    <string name="exitdialog_title">退出本软件</string>
+    <string name="exitdialog_content">您确定要退出本软件吗？</string>
+    <string name="exitdialog_ok">确定</string>
+    <string name="exitdialog_cancel">返回</string>
+    <string name="get_more">加载更多。。。</string>
+    <string name="get_more_string">加载更多。。。</string>
+    <string name="multichoicedialogtitle">请选择回复方式</string>
+    <string name="multichoicedialogitem1">谢谢</string>
+    <string name="multichoicedialogitem2">祝您阖家欢乐，万事如意！</string>
+    <string name="multichoicedialogitem3">祝您身体健康～～</string>
+    <string name="multichoicedialogitem4">您的短信已收到，稍后给您回复，不便之处还望谅解。</string>
+    <string name="multichoicedialogitem5">祝节日快乐</string>
+    <string name="multichoicedialogitem6">从节日库选择信息</string>
+    <string name="key_words">"节日快乐", "值此", "佳节", "衷心", "祝", "愿", "祝愿","恭喜","节日","前途","思念","问候","礼物","顺","棒","好","兴","笑","美满","祝福" ,"平安" ,"吉祥" ,"快乐" ,"开心" ,"如意","发财","健康","幸福","团圆","安康","好运","美好","欢笑","欢喜","顺利"</string>
+    <string name="loading_contacts">联系人加载中...</string>
+    <string name="loading_sms">短信加载中...</string>
+    <string name="main_setting">手动回复设置</string>
+    <string name="set_autoreply">自动回复功能</string>
+    <string name="set_autoreply_on">自动回复功能开启</string>
+    <string name="set_autoreply_off">自动回复功能关闭</string>
+    <string name="set_autoreply_message">自动回复消息内容</string>
+    <string name="set_autoreply_message_content">祝你一帆风顺，二龙腾飞，三羊开泰，四季平安，五福临门，六六大顺，七星高照，八方来财，九九同心，十全十美。</string>
+    <string name="set_about">关于</string>
+    <string name="set_share">分享</string>
+    <string name="set_phone">玩转手机</string>
+    <string name="set_share_content">最近发现个短彩信管理神器，超多节日短信，还有短信转发王和个性话短信设置功能呐~快来体验吧！下载地址：</string>
+    <string name="set_contacts">如果您在使用的过程中出现了Bug或者有任何的建议或意见，请您联系我们，谢谢您对本软件的支持～</string>
+    <string name="set_author">作者：兰州大学MM创业孵化基地</string>
+    <string name="set_email">邮箱：18298358753@139.com</string>
+    <string name="loading">加载中...</string>
+    <string name="ok">确认</string>
+    <string name="main_back">返回</string>
+    <string name="spring">春节</string>
+    <string name="newyear">元旦</string>
+    <string name="qingrenjie">情人节</string>
+    <string name="yuanxiaojie">元宵节</string>
+    <string name="happy_holiday">节日快乐</string>
+    <string name="holiday_one">元旦</string>
+    <string name="holiday1">元旦</string>
+    <string name="holiday2">腊八节</string>
+    <string name="holiday3">春节</string>
+    <string name="holiday4">元宵节</string>
+    <string name="holiday5">情人节</string>
+    <string name="holiday6">妇女节</string>
+    <string name="holiday7">植树节</string>
+    <string name="holiday8">愚人节</string>
+    <string name="holiday9">清明节</string>
+    <string name="holiday10">劳动节</string>
+    <string name="holiday11">青年节</string>
+    <string name="holiday12">母亲节</string>
+    <string name="holiday13">护士节</string>
+    <string name="holiday14">儿童节</string>
+    <string name="holiday15">父亲节</string>
+    <string name="holiday16">端午节</string>
+    <string name="holiday17">建党节</string>
+    <string name="holiday18">建军节</string>
+    <string name="holiday19">七夕节</string>
+    <string name="holiday20">教师节</string>
+    <string name="holiday21">中秋节</string>
+    <string name="holiday22">国庆节</string>
+    <string name="holiday23">重阳节</string>
+    <string name="holiday24">环卫节</string>
+    <string name="holiday25">万圣节</string>
+    <string name="holiday26">记者节</string>
+    <string name="holiday27">光棍节</string>
+    <string name="holiday28">圣诞节</string>
+    <string name="holiday_mms_read_exception">读取彩信异常</string>
+    <string name="main_fsend">组发</string>
+    <string name="main_gsend">群发</string>
+    <string name="main_autoreply">自动回复</string>
+    <string name="main_manual">手动回复</string>
+    <string name="main_smslib">节日短彩信库</string>
+    <string name="main_update">更新</string>
+    <string name="main_about">关于</string>
+    <string name="main_inbox">收件箱</string>
+    <string name="main_subsms">短/彩信包</string>
+    <string name="main_statics">发送日志</string>
+    <string name="main_individual">短信管家</string>
+    <string name="main_sms_forward">短信转发王</string>
+    <string name="main_door">移动掌上门户</string>
+    <string name="main_life">移动生活客户端</string>
+    <string name="main_flow">流量套餐</string>
+    <string name="autoreply_choose">选择</string>
+    <string name="not_support">对不起，暂不支持此功能</string>
+    <string name="manual_reply_setting">设置</string>
+    <string name="manual_sure">完成</string>
+    <string name="manual_cancel">取消</string>
+    <string name="auto_key">关键字:</string>
+    <string name="splash_start">开始</string>
+
+    <string-array name="subsms_text">
+        <item>快信专属50元短信包（1000条）</item>
+        <item>快信专属50元彩信包（300条）</item>
+        <item>开通短信2元套餐（25条）</item>
+        <item>开通短信5元套餐（60条）</item>
+        <item>开通短信10元套餐（160条）</item>
+        <item>开通彩信3元套餐（15条）</item>
+        <item>开通彩信5元套餐（25条）</item>
+        <item>开通彩信8元套餐（40条）</item>
+        <item>查询剩余短信条数</item>
+    </string-array>
+    <string-array name="subsms_text_info">
+        <item>开通快信专属50元包1000条短信包（开通之日起限6个月用完，6个月内不能重复订购）</item>
+        <item>开通快信专属50元包300条彩信包（开通之日起限6个月用完，6个月内不能重复订购）</item>
+        <item>开通2元包25条短信套餐/月</item>
+        <item>开通5元包60条短信套餐/月</item>
+        <item>开通10元包160条短信套餐/月</item>
+        <item>3元套餐包15条彩信/月</item>
+        <item>5元套餐包25条彩信/月</item>
+        <item>8元套餐包40条彩信/月</item>
+        <item>查询剩余短信条数</item>
+    </string-array>
+    <string-array name="subsms_value">
+        <item>KTDX1000419</item>
+        <item>KTCX300419</item>
+        <item>30400101</item>
+        <item>30400201</item>
+        <item>30400301</item>
+        <item>30500101</item>
+        <item>30500201</item>
+        <item>30500301</item>
+        <item>TCCX</item>
+    </string-array>
+    <string-array name="subsms_value_ct">
+        <item>101</item>
+        <item>3034</item>
+        <item>3032</item>
+        <item>3035</item>
+        <item>3033</item>
+        <item>3036</item>
+        <item>108</item>
+    </string-array>
+
+    <string name="auto_reply_delay_note">自动回复时间延迟(秒)</string>
+    <string name="auto_reply_disabled">自动回复功能已经关闭</string>
+    <string name="auto_reply_by_time_enabled">根据设定的时间段回复功能开启</string>
+    <string name="auto_reply_by_time_begin">点击设置开始时间</string>
+    <string name="auto_reply_by_time_end">点击设置结束时间</string>
+    <string name="auto_reply_by_time_no">未设置时间</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+    <string name="second">秒</string>
+    <string name="seperator">--</string>
+    <string name="mms_subject_begintag">&lt;&lt;主题:</string>
+    <string name="mms_subject_endtag">&gt;&gt;</string>
+    <string name="send_time">发送时间:</string>
+    <string name="subject_null">未读取成功</string>
+
+    <string-array name="individual_business">
+        <item>短信签名</item>
+        <item>短信转移</item>
+        <item>短信到达确认</item>
+        <item>短信云备份</item>
+        <item>短信过滤</item>
+    </string-array>
+    <string-array name="individual_detail_business">
+        <item>业务介绍</item>
+        <item>业务资费</item>
+        <item>业务说明</item>
+        <item>业务办理</item>
+        <item>操作设置</item>
+    </string-array>
+
+    <string name="individual_detail_one_intro">短信到达确认业务能够帮助您确认您的短信对方是否成功接收。通过业务设置，您发送的每条短信，系统都将进行跟踪和判断，并将对方的接收状态，如关机、短信已满、不在服务区等，以短信方式告知您。使用该业务，能够帮您在更好的了解会议、聚会等群发短信通知，对方是否成功收到，以便您及时进行补充通知。</string>
+    <string name="individual_detail_one_fee">短信到达确认业务按包月方式收费，费用为1.0元/月，在业务开通72小时后收取当月包月费（订购72小时之内退订不收费），以后每月月初收取该月包月费，一月之内多次退订、订购同一业务只收取一次包月费。
+\n小贴士：如您暂时不需要使用业务功能，可通过暂停业务功能实现，无需退订业务。业务在暂停状态下，正常收取功能费。</string>
+    <string name="individual_detail_one_note">1、目前短信到达确认业务对中国移动用户提供； 
+\n2、开通业务后，必须先进行激活，业务功能才能生效。</string>
+
+    <string-array name="individual_detail_one_action">
+        <item>KTBJHZ</item>
+        <item>QXBJHZ</item>
+    </string-array>
+    <string-array name="individual_detail_one_setting">
+        <item>激活功能</item>
+        <item>暂停功能</item>
+        <item>查询业务状态</item>
+    </string-array>
+    <string-array name="individual_detail_one_setting_value">
+        <item>JHBJHZ</item>
+        <item>ZTBJHZ</item>
+        <item>CXBJHZ</item>
+    </string-array>
+    <string-array name="individual_detail_one_setting_flag">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+
+    <string name="individual_detail_one_strict">由于目前国内、国际短信业务互连互通组网的限制，并且全国DCS平台尚未实现互连，因此被叫回执业务目前只对本省本网用户（即甘肃移动用户）发送给开通被叫回执业务用户的短信的提供发送状态回执，甘肃移动以外所有用户发送给开通被叫回执业务用户的短信系统都不能提供发送状态回执。</string>
+    <string name="individual_detail_two_intro">短信云备份业务能够帮你自动备份发出或收到的短信。您还可以登录http://218.203.165.84:8080，对备份的短信进行查询、管理等。能够有效帮您解决手机存储短信条数限制问题，为您提供万条短信存储空间。</string>
+    <string name="individual_detail_two_fee">短信云备份业务按包月方式收费，费用为2.0元/月，在业务开通72小时后收取当月包月费（订购72小时之内退订不收费），以后每月月初收取该月包月费，一月之内多次退订、订购同一业务只收取一次包月费。
+\n小贴士：如您暂时不需要使用业务功能，可通过暂停业务功能实现，无需退订业务。业务在暂停状态下，正常收取功能费。</string>
+    <string name="individual_detail_two_note">1、短信云备份业务对于接收的短信目前只能保存本省号码（包含甘肃移动、甘肃联通和甘肃电信用户）、国外号码和所有增值业务服务商发送的短信，但个人发送的所有短信都可以正常保留到短信云备份中。
+\n2、开通业务后，必须先进行激活，业务功能才能生效；
+\n3、更多功体验能请登录http://218.203.165.84:8080。</string>
+
+    <string-array name="individual_detail_two_action">
+        <item>KTDXCK</item>
+        <item>QXDXCK</item>
+    </string-array>
+    <string-array name="individual_detail_two_setting">
+        <item>激活功能</item>
+        <item>暂停功能</item>
+        <item>查询业务状态</item>
+    </string-array>
+    <string-array name="individual_detail_two_setting_value">
+        <item>JHCK</item>
+        <item>ZTCK</item>
+        <item>CXCK</item>
+    </string-array>
+    <string-array name="individual_detail_two_setting_flag">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+
+    <string name="individual_detail_two_strict">由于目前国内短信业务互连互通组网的限制，并且全国DCS平台尚未实现互连，因此短信仓库业务对于用户接收的短信目前只能保存本省用户（包含甘肃移动、甘肃联通和甘肃电信用户）、国外用户和所有SP发送的短信，国内所有外省用户（除甘肃移动、甘肃联通和甘肃电信以外的所有国内外省用户）发送的短信无法保存到短信仓库中。但用户发送的所有短信都可以正常保留到短信仓库中。</string>
+    <string name="individual_detail_three_intro">短信过滤业务能够帮你解决垃圾短消息或恶意短消息的骚扰难题，只要您提供不想接收的短信关键字、电话号码，或设置不想接收短信的时段，就可将短信骚扰拒之门外。</string>
+    <string name="individual_detail_three_fee">短信过滤业务按包月方式收费，费用为2.0元/月，在业务开通72小时后收取当月包月费（订购72小时之内退订不收费），以后每月月初收取该月包月费，一月之内多次退订、订购同一业务只收取一次包月费。
+\n小贴士：如您暂时不需要使用业务功能，可通过暂停业务功能实现，无需退订业务。业务在暂停状态下，正常收取功能费。</string>
+    <string name="individual_detail_three_note">	1、开通业务后，必须先进行激活，业务功能才能生效；
+	\n2、短信过滤业务目前只能过滤本省用户（包含甘肃移动、甘肃联通和甘肃电信用户）、国外用户和所有商家发送的短信，国内所有外省用户（除甘肃移动、甘肃联通和甘肃电信以外的所有国内外省用户）发送的短信无法被过滤。
+	\n3、更多功体验能请登录http://218.203.165.84:8080。</string>
+
+    <string-array name="individual_detail_three_action">
+        <item>KTDXGL</item>
+        <item>QXDXGL</item>
+    </string-array>
+    <string-array name="individual_detail_three_setting">
+        <item>激活功能</item>
+        <item>暂停功能</item>
+        <item>查询业务状态</item>
+        <item>增加黑名单号码</item>
+        <item>删除黑名单号码</item>
+        <item>查询黑名单号码</item>
+        <item>增加白名单号码</item>
+        <item>删除白名单号码</item>
+        <item>查询白名单号码</item>
+    </string-array>
+    <string-array name="individual_detail_three_setting_value">
+        <item>JHGL</item>
+        <item>ZTGL</item>
+        <item>CXGL</item>
+        <item>ZJH#</item>
+        <item>SCH#</item>
+        <item>CXH</item>
+        <item>ZJB#</item>
+        <item>SCB#</item>
+        <item>CXB</item>
+    </string-array>
+    <string-array name="individual_detail_three_setting_flag">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+    <string name="individual_detail_three_strict">由于目前国内短信业务互连互通组网的限制，并且全国DCS平台尚未实现互连，因此短信过滤业务目前只能过滤本省用户（包含甘肃移动、甘肃联通和甘肃电信用户）、国外用户和所有SP发送的短信，国内所有外省用户（除甘肃移动、甘肃联通和甘肃电信以外的所有国内外省用户）发送的短信无法被过滤。</string>
+    <string name="individual_detail_five_intro">短信转移业务能够帮助您在换号、手机故障、电量不足、出国漫游等无法接收短信的情况下，将别人发来短信自动转移到指定其他中国移动手机号码上，让您短信不漏收。</string>
+    <string name="individual_detail_five_fee">短信转移业务按包月方式收费，费用为2.0元/月，在业务开通72小时后收取当月包月费（订购72小时之内退订不收费），以后每月月初收取该月包月费，一月之内多次退订、订购同一业务只收取一次包月费。
+\n小贴士：如您暂时不需要使用业务功能，可通过暂停业务功能实现，无需退订业务。业务在暂停状态下，正常收取功能费。</string>
+    <string name="individual_detail_five_note">1、开通业务后，必须先进行激活，业务功能才能生效；
+\n2、目前短信转移业务限定被呼转号码只能是中国移动手机号码，暂时不开放向异网号码的呼转设置；
+\n3、短信转移业务只允许转移一次。例如： A、B分别开通了短信转移业务，A设置转移到B，B设置转移到C，当某人向A发送短信时，短信只会被转移到B，而不会被转移到C。
+\n4、更多功体验能请登录http://218.203.165.84:8080。</string>
+
+    <string-array name="individual_detail_five_action">
+        <item>KTDXZY</item>
+        <item>QXDXZY</item>
+    </string-array>
+    <string-array name="individual_detail_five_setting">
+        <item>激活功能</item>
+        <item>暂停功能</item>
+        <item>查询业务状态</item>
+        <item>设置转移号码</item>
+    </string-array>
+    <string-array name="individual_detail_five_setting_value">
+        <item>JHZY</item>
+        <item>ZTZY</item>
+        <item>CXZY</item>
+        <item>WTJZY#</item>
+    </string-array>
+    <string-array name="individual_detail_five_setting_flag">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string name="individual_detail_five_strict">目前短信转移业务限定被呼转号码只能是中国移动手机号码，暂时不开放向异网用户的呼转设置。</string>
+    <string name="individual_detail_six_intro">短信签名业务能够为您提供快捷、方便的短信个性化签名服务。通过业务设置，系统会自动在您发送的短信内容后，附加属于您自己的个性化签名。如果短信（包括长短信）增加签名内容后，超过单条短信所能承载的长度，则系统会自动取消该条内容的签名，避免产生不必要的短信费用。</string>
+    <string name="individual_detail_six_fee">短信签名业务按包月方式收费，费用为2.0元/月，在业务开通72小时后收取当月包月费（订购72小时之内退订不收费），以后每月月初收取该月包月费，一月之内多次退订、订购同一业务只收取一次包月费。
+\n小贴士：如您暂时不需要使用业务功能，可通过暂停业务功能实现，无需退订业务。业务在暂停状态下，正常收取功能费。</string>
+    <string name="individual_detail_six_note">	1、开通业务后，必须先进行激活，业务功能才能生效；
+	\n2、设定的短信签名长度不能超过50个汉字，如果超过，系统会拒绝接受该设定；
+	\n3、长短信在最后一条短信内增加签名；
+	\n4、如果短信（包括长短信）增加签名内容后，短信超过单条短信所能承载的长度，则系统不会添加签名。
+	\n5、更多功体验能请登录http://218.203.165.84:8080。</string>
+
+    <string-array name="individual_detail_six_action">
+        <item>KTDXQM</item>
+        <item>QXDXQM</item>
+    </string-array>
+    <string-array name="individual_detail_six_setting">
+        <item>激活功能</item>
+        <item>暂停功能</item>
+        <item>查询业务状态</item>
+        <item>设置签名内容</item>
+    </string-array>
+    <string-array name="individual_detail_six_setting_value">
+        <item>JHQMD</item>
+        <item>ZTQMD</item>
+        <item>CXQMD</item>
+        <item>SZQMD#</item>
+    </string-array>
+    <string-array name="individual_detail_six_setting_flag">
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+    <string name="individual_detail_six_strict">1、用户可以通过登录DCS提供的WEB界面对签名内容进行编辑、删除、分组等管理，也可以通过发送短信的方式修改默认签名内容。
+2、开通了短信签名业务的用户可以对自己设定的用户号码进行分组管理，对不同的分组可以制定不同的签名内容。
+对用户号码进行分组管理时，用户组应当遵循如下规定：
+􀁺 1）每个开通了业务的用户都会有一个缺省号码组。
+􀁺 2）没有明确定义在号码组中的号码，属于默认号码组。
+􀁺 3）不同组中的号码之间不能出现交集。</string>
+    <string name="individual_detail_open">业务开通</string>
+    <string name="individual_detail_close">业务注销</string>
+
+    <string-array name="statics_detail_name">
+        <item>发送时间</item>
+        <item>信息条数</item>
+        <item>目标号码及状态</item>
+        <item>信息内容</item>
+    </string-array>
+
+    <string name="sms_forward_account">电话号码:</string>
+    <string name="sms_forward_hint">请输入本机号码</string>
+    <string name="sms_forward_remember">记住账户</string>
+    <string name="sms_forward_login">马上登录</string>
+    <string name="sms_forward_register">注册</string>
+    <string name="sms_forward_login_progress">正在登录...</string>
+    <string name="sms_forward_network_note">无法连接到网络，请开启网络</string>
+    <string name="sms_forward_phone_input_error">请输入正确的电话号码</string>
+    <string name="sms_forward_no_point">没有用户积分</string>
+    <string name="sms_forward_no_rank">没有排名</string>
+    <string name="sms_forward_sms_item">分类短信</string>
+    <string name="sms_forward_number">用户：</string>
+    <string name="sms_forward_pont">用户积分为：</string>
+    <string name="sms_forward_rank">用户排名为：</string>
+    <string name="sms_forward_register_title">您将注册成为短信转发王会员</string>
+    <string name="sms_forward_register_fee_title">业务资费</string>
+    <string name="sms_forward_register_fee_normal">普通会员：本业务免费</string>
+    <string name="sms_forward_register_fee_high">高级会员：资费2元/月</string>
+
+    <string-array name="sms_forward_detail_items">
+        <item>问候祝福</item>
+        <item>绵绵情话</item>
+        <item>开心一笑</item>
+        <item>鼓舞励志</item>
+        <item>智力游戏</item>
+        <item>其他</item>
+    </string-array>
+
+    <string name="sms_forward_user_undefined">用户</string>
+    <string name="sms_forward_user_normal">普通用户</string>
+    <string name="sms_forward_user_high">高级用户</string>
+    <string name="sms_forward_detailitem_more">更多</string>
+    <string name="sms_forward_detailitem_load">加载中...</string>
+    <string name="sms_forward_detailitem_no_data">没有新数据</string>
+    <string name="sms_forward">转发</string>
+    <string name="sms_forward_note_register">对不起，您还不是短信转发王的会员，请您注册后再进行体验。</string>
+    <string name="sms_forward_register_normal">注册普通会员</string>
+    <string name="sms_forward_register_high">注册高级会员</string>
+    <string name="sms_forward_setting">更多</string>
+    <string name="sms_forward_reward_rule">奖励规则</string>
+    <string name="sms_forward_reward_rule_value">一、积分奖励：
+1、积分排名奖：按照用户转发种子短信和推荐好友所获取积分之和排名进行奖励，积分相同则按达到该积分的时间排名进行奖励，奖项设置如下：
+		a) 一等奖：3名，每人奖励价值3000元的礼品;
+		b) 二等奖：20名，每人奖励价值500元的礼品;
+		c) 三等奖：300名，每人奖励价值50元的礼品;
+2、月度嘉奖：每月对高级会员进行抽奖，全省范围内奖励100名，奖励价值100元的礼品。
+
+二、积分兑奖办法
+	1、积分每月兑奖一次；
+	2、达到兑奖条件的客户当月必须兑奖，同时积分自动清零，当月积分不再进行累积；所得奖品保留三个月，三个月后按用户自动放弃处理；
+	3、每期中奖用户号码清单将在短信转发积分业务网站上公布。
+	4、同一中奖用户三个月内不能重复</string>
+
+    <string-array name="sms_forward_setting">
+        <item>开通普通会员</item>
+        <item>开通高级会员</item>
+        <item>注册短信</item>
+        <item>邀请好友</item>
+        <item>查询积分</item>
+        <item>获得帮助</item>
+        <item>退订普通会员</item>
+        <item>退订高级会员</item>
+    </string-array>
+    <string-array name="sms_forward_setting_note">
+        <item>开通普通会员业务免费</item>
+        <item>开通高级会员业务资费2元/月</item>
+        <item>请输入短信内容进行种子短信注册</item>
+        <item>邀请好友成为普通或高级会员</item>
+        <item>查询每天的积分和排名</item>
+        <item>获得帮助信息</item>
+        <item>放弃所有积分并退订普通会员</item>
+        <item>放弃所有积分并退订高级会员</item>
+    </string-array>
+    <string-array name="sms_forward_setting_normal_number">
+        <item>10658585</item>
+        <item>106585858</item>
+        <item>106585850</item>
+        <item>10658585</item>
+        <item>10658585</item>
+        <item>10658585</item>
+        <item>10658585</item>
+        <item>106585858</item>
+    </string-array>
+    <string-array name="sms_forward_setting_high_number">
+        <item>10658585</item>
+        <item>106585858</item>
+        <item>1065858580</item>
+        <item>106585858</item>
+        <item>106585858</item>
+        <item>106585858</item>
+        <item>10658585</item>
+        <item>106585858</item>
+    </string-array>
+    <string-array name="sms_forward_setting_action">
+        <item>ZC</item>
+        <item>GJ</item>
+        <item></item>
+        <item>TJ</item>
+        <item>CX</item>
+        <item>H</item>
+        <item>TDZC</item>
+        <item>TDGJ</item>
+    </string-array>
+    <string-array name="sms_forward_dredge_note">
+        <item>开通普通会员，此业务免费</item>
+        <item>开通高级会员，此业务资费2元/月</item>
+    </string-array>
+
+    <string name="sms_forward_dredge">开通</string>
+
+    <string-array name="door_display">
+        <item>掌上营业厅</item>
+        <item>无线城市</item>
+        <item>12580</item>
+        <item>拇指乐园</item>
+        <item>飞信</item>
+        <item>MM商场</item>
+        <item>139邮箱</item>
+        <item>无线音乐</item>
+        <item>手机冲浪</item>
+        <item>移动微博</item>
+        <item>手机视频</item>
+        <item>手机动漫</item>
+        <item>手机游戏</item>
+    </string-array>
+    <string-array name="door_note">
+        <item>中国移动业务查询好帮手!</item>
+        <item>一站式生活服务综合平台</item>
+        <item>吃、喝、玩、乐必不可少的生活门户</item>
+        <item>我的精彩互联生活</item>
+        <item>谁说，相见不如怀念。飞信，连接你的画面</item>
+        <item>绿色、安全的手机应用下载商场</item>
+        <item>手机变邮箱，沟通更方便</item>
+        <item>实时音乐资讯，最新最潮歌曲</item>
+        <item>海纳万象资讯，免费个性订阅，看您想看的，爱您所爱的</item>
+        <item>随时随地说说自己身边事！</item>
+        <item>精彩视频，尽在手机视频！</item>
+        <item>最新最潮动漫资讯</item>
+        <item>精彩游戏内容，尽在游戏大厅</item>
+    </string-array>
+    <string-array name="door_url">
+        <item>http://wap.gs.10086.cn/</item>
+        <item>http://wap.wxcs.cn</item>
+        <item>http://m.12580.com</item>
+        <item>http://wap.139gs.com</item>
+        <item>http://f.10086.cn</item>
+        <item>http://a.10086.cn</item>
+        <item>http://wapmail.10086.cn</item>
+        <item>http://m.10086.cn</item>
+        <item>http://go.10086.cn</item>
+        <item>http://m.weibo.10086.cn</item>
+        <item>http://wap.cmvideo.cn</item>
+        <item>http://wap.dm.10086.cn</item>
+        <item>http://g.10086.cn</item>
+    </string-array>
+    <string-array name="life_display">
+        <item>MM商场</item>
+        <item>随E行</item>
+        <item>无线城市客户端</item>
+        <item>12580商城</item>
+        <item>飞信</item>
+        <item>彩云</item>
+        <item>灵犀</item>
+        <item>冲浪快讯</item>
+        <item>移动微博</item>
+        <item>手机视频</item>
+        <item>手机动漫</item>
+        <item>游戏大厅</item>
+        <item>139邮箱</item>
+        <item>咪咕铃声</item>
+        <item>咪咕音乐</item>
+        <item>手机导航</item>
+        <item>手机支付</item>
+    </string-array>
+    <string-array name="life_note">
+        <item>全新设计，享受最佳下载体验！</item>
+        <item>便捷接入中国移动WLAN网络</item>
+        <item>一站式生活服务综合软件</item>
+        <item>提供吃、喝、玩、乐搜索服务</item>
+        <item>谁说，相见不如怀念。飞信，连接你的画面</item>
+        <item>云储存，轻松管理手机数据</item>
+        <item>听话的语音小秘书!</item>
+        <item>海纳万象资讯，免费个性订阅，看您想看的，爱您所爱的</item>
+        <item>随时随地说说自己身边事！</item>
+        <item>中国移动与国内知名媒体合力打造</item>
+        <item>最新最潮动漫资讯</item>
+        <item>精彩游戏内容，尽在游戏大厅</item>
+        <item>手机变邮箱，沟通更方便</item>
+        <item>中国移动手机铃声管理助手</item>
+        <item>实时音乐资讯，最新最潮歌曲</item>
+        <item>出门不求人，人性化精准导航</item>
+        <item>随时随地轻松交易</item>
+    </string-array>
+
+    <string name="life_down">下载</string>
+    <string name="life_share">分享</string>
+
+    <string-array name="sms_forward_actions">
+        <item>转发</item>
+        <item>分享</item>
+    </string-array>
+
+    <string name="fresh">刷新</string>
+    <string name="yidongchangelife">移动改变生活</string>
+    <string name="points">...</string>
+    <string name="feedback">问题反馈</string>
+    <string name="clear">清除</string>
+    <string name="select_all">全选</string>
+    <string name="mms_subject">请输入彩信主题</string>
+
+    <string-array name="flowsms_text">
+        <item>开通手机上网5元30M套餐</item>
+        <item>开通手机上网10元70M套餐</item>
+        <item>开通手机上网20元150M套餐</item>
+        <item>开通手机上网30元280M套餐</item>
+        <item>开通手机上网50元1G套餐</item>
+        <item>开通手机上网100元2G套餐</item>
+        <item>开通手机上网200元5G套餐</item>
+        <item>开通手机上网5元30M加油包</item>
+        <item>查询剩余流量</item>
+    </string-array>
+    <string-array name="flowsms_text_info">
+        <item>开通手机上网5元30M套餐</item>
+        <item>开通手机上网10元70M套餐</item>
+        <item>开通手机上网20元150M套餐</item>
+        <item>开通手机上网30元280M套餐</item>
+        <item>开通手机上网50元1G套餐</item>
+        <item>开通手机上网100元2G套餐</item>
+        <item>开通手机上网200元5G套餐</item>
+        <item>开通手机上网5元30M加油包（每月可重复订购20次，当月有效，隔月自动取消）</item>
+        <item>查询剩余流量</item>
+    </string-array>
+    <string-array name="flowsms_value">
+        <item>302001</item>
+        <item>302002</item>
+        <item>302003</item>
+        <item>302004</item>
+        <item>302005</item>
+        <item>302006</item>
+        <item>302007</item>
+        <item>3061</item>
+        <item>TCCX</item>
+    </string-array>
+
+    <string name="mms_send_success">彩信发送成功</string>
+    <string name="mms_send_error">彩信发送失败</string>
+    <string name="state_success">成功</string>
+    <string name="state_failure">失败</string>
+    <string name="title_activity_phone">PhoneActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_splash1">Splash1</string>
+
+</resources>

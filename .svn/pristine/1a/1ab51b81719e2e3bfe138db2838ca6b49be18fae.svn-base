@@ -1,0 +1,707 @@
+package com.ginwave.smshelper;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.inputmethodservice.Keyboard.Key;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.TranslateAnimation;
+import android.webkit.MimeTypeMap;
+import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.ginwave.smshelper.HolidayDataSource.HolidayItem;
+import com.ginwave.smshelper.localsms.LocalSmsSendActivity;
+import com.umeng.analytics.MobclickAgent;
+
+public class HolidayGrid extends Activity implements OnClickListener,
+		AnimationListener {
+
+	private LinearLayout mHolidayLayout;
+	private TextView[] mHolidayIconArray;
+	private LinearLayout mHolidayLayoutItem[];
+	private Animation mHolidayLayoutTranslateDownAnimation[];
+	private Animation mHolidayLayoutTranslateUpAnimation[];
+	private Animation mHolidayDetailTranslateDownAnimation;
+	private Animation mHolidayDetailTranslateUpAnimation;
+	private int mScreenWidth;
+	private int mScreenHeight;
+	private LinearLayout mHolidayDetailLayout;
+	private TextView mHolidayDetailArray[];
+	private TextView mHolidayDetailAbout;
+	private TextView mHolidayDetailMessage;
+	private TextView mHolidayDetailHistory;
+	private TextView mHolidayDetailWords;
+	private TextView mHolidayDetailSongs;
+	private ListView mHolidayMessageList;
+	private TextView mHolidayOtherValue;
+	private TextView mHolidayDetailIcon;
+	private TextView mHolidayDetailBack;
+	private Button msglib;
+	private Button colmsglib;
+	private int mHolidayIconId[];
+	private int mHolidayIconBigId[];
+	private int mHolidayIconTextId[];
+	private int mPresentSelectionItem;
+	private int mPresentClickItem;
+	private LayoutInflater mInflater;
+	private HolidayDetailAdapter mHolidayDetailAdapter;
+	private HolidayItem mHolidayItem;
+	private Resources mResources;
+	private String[] mXmlArray;
+	private TextView mMainBack;
+	private List<String> mMmsArray;
+
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.holiday_grid);
+		mResources = this.getResources();
+		mMainBack = (TextView) findViewById(R.id.mMainBack);
+		mMainBack.setOnClickListener(this);
+		mInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+		mHolidayDetailLayout = (LinearLayout) findViewById(R.id.mHolidayDetailLayout);
+		mHolidayDetailArray = new TextView[5];
+		mHolidayDetailArray[0] = (TextView) findViewById(R.id.mHolidayDetailMessage);
+		mHolidayDetailArray[0].setOnClickListener(this);
+		mHolidayDetailArray[1] = (TextView) findViewById(R.id.mHolidayDetailAbout);
+		mHolidayDetailArray[1].setOnClickListener(this);
+		mHolidayDetailArray[2] = (TextView) findViewById(R.id.mHolidayDetailHistory);
+		mHolidayDetailArray[2].setOnClickListener(this);
+		mHolidayDetailArray[3] = (TextView) findViewById(R.id.mHolidayDetailWords);
+		mHolidayDetailArray[3].setOnClickListener(this);
+		mHolidayDetailArray[4] = (TextView) findViewById(R.id.mHolidayDetailSongs);
+		mHolidayDetailArray[4].setOnClickListener(this);
+		mHolidayMessageList = (ListView) findViewById(R.id.mHolidayMessageList);
+		mHolidayOtherValue = (TextView) findViewById(R.id.mHolidayOtherValue);
+		mHolidayDetailBack = (TextView) findViewById(R.id.mHolidayDetailBack);
+		mHolidayDetailIcon = (TextView) findViewById(R.id.mHolidayDetailIcon);
+
+		mHolidayDetailBack.setOnClickListener(this);
+		mHolidayIconArray = new TextView[28];
+		mHolidayLayoutItem = new LinearLayout[7];
+		mHolidayLayoutTranslateDownAnimation = new TranslateAnimation[7];
+		mHolidayLayoutTranslateUpAnimation = new TranslateAnimation[7];
+		msglib = (Button) findViewById(R.id.msg_lib);
+		colmsglib = (Button) findViewById(R.id.Colmsg_lib);
+
+		mHolidayLayout = (LinearLayout) findViewById(R.id.mHolidayLayout);
+		mScreenWidth = this.getWindowManager().getDefaultDisplay().getWidth();
+		mScreenHeight = this.getWindowManager().getDefaultDisplay().getHeight();
+		mHolidayIconId = new int[] { R.drawable.holiday1, R.drawable.holiday2,
+				R.drawable.holiday3, R.drawable.holiday4, R.drawable.holiday5,
+				R.drawable.holiday6, R.drawable.holiday7, R.drawable.holiday8,
+				R.drawable.holiday9, R.drawable.holiday10,
+				R.drawable.holiday11, R.drawable.holiday12,
+				R.drawable.holiday13, R.drawable.holiday14,
+				R.drawable.holiday15, R.drawable.holiday16,
+				R.drawable.holiday17, R.drawable.holiday18,
+				R.drawable.holiday19, R.drawable.holiday20,
+				R.drawable.holiday21, R.drawable.holiday22,
+				R.drawable.holiday23, R.drawable.holiday24,
+				R.drawable.holiday25, R.drawable.holiday26,
+				R.drawable.holiday27, R.drawable.holiday28 };
+		mHolidayIconBigId = new int[] { R.drawable.holiday1_big,
+				R.drawable.holiday2_big, R.drawable.holiday3_big,
+				R.drawable.holiday4_big, R.drawable.holiday5_big,
+				R.drawable.holiday6_big, R.drawable.holiday7_big,
+				R.drawable.holiday8_big, R.drawable.holiday9_big,
+				R.drawable.holiday10_big, R.drawable.holiday11_big,
+				R.drawable.holiday12_big, R.drawable.holiday13_big,
+				R.drawable.holiday14_big, R.drawable.holiday15_big,
+				R.drawable.holiday16_big, R.drawable.holiday17_big,
+				R.drawable.holiday18_big, R.drawable.holiday19_big,
+				R.drawable.holiday20_big, R.drawable.holiday21_big,
+				R.drawable.holiday22_big, R.drawable.holiday23_big,
+				R.drawable.holiday24_big, R.drawable.holiday25_big,
+				R.drawable.holiday26_big, R.drawable.holiday27_big,
+				R.drawable.holiday28_big };
+		mHolidayIconTextId = new int[] { R.string.holiday1, R.string.holiday2,
+				R.string.holiday3, R.string.holiday4, R.string.holiday5,
+				R.string.holiday6, R.string.holiday7, R.string.holiday8,
+				R.string.holiday9, R.string.holiday10, R.string.holiday11,
+				R.string.holiday12, R.string.holiday13, R.string.holiday14,
+				R.string.holiday15, R.string.holiday16, R.string.holiday17,
+				R.string.holiday18, R.string.holiday19, R.string.holiday20,
+				R.string.holiday21, R.string.holiday22, R.string.holiday23,
+				R.string.holiday24, R.string.holiday25, R.string.holiday26,
+				R.string.holiday27, R.string.holiday28 };
+		mXmlArray = new String[] { "holiday1.xml", "holiday2.xml",
+				"holiday3.xml", "holiday4.xml", "holiday5.xml", "holiday6.xml",
+				"holiday7.xml", "holiday8.xml", "holiday9.xml",
+				"holiday10.xml", "holiday11.xml", "holiday12.xml",
+				"holiday13.xml", "holiday14.xml", "holiday15.xml",
+				"holiday16.xml", "holiday17.xml", "holiday18.xml",
+				"holiday19.xml", "holiday20.xml", "holiday21.xml",
+				"holiday22.xml", "holiday23.xml", "holiday24.xml",
+				"holiday25.xml", "holiday26.xml", "holiday27.xml",
+				"holiday28.xml" };
+		msglib.setBackgroundResource(R.drawable.button_pressed);
+		msglib.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				controlHolidayDetailContent(0);
+				mHolidayDetailArray[0].setText("短信");
+				mMmsArray.clear();
+				mMmsArray.addAll(mHolidayItem.getHolidayItem1Value());
+				Log.i("XXX", "sms "
+						+ mHolidayItem.getHolidayItem1Value().size());
+				msglib.setBackgroundResource(R.drawable.button_pressed);
+				colmsglib.setBackgroundResource(R.drawable.button_normal);
+				mHolidayDetailAdapter.notifyDataSetChanged();
+			}
+		});
+		colmsglib.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				controlHolidayDetailContent(0);
+				mHolidayDetailArray[0].setText("彩信");
+				mMmsArray.clear();
+				if (mHolidayItem.getHolidayItem6Value() != null) {
+					mMmsArray.addAll(mHolidayItem.getHolidayItem6Value());
+				}
+				colmsglib.setBackgroundResource(R.drawable.button_pressed);
+				msglib.setBackgroundResource(R.drawable.button_normal);
+				mHolidayDetailAdapter.notifyDataSetChanged();
+			}
+		});
+
+		int tmpNumber;
+		for (int i = 0; i < mHolidayLayout.getChildCount(); i++) {
+			tmpNumber = i * 4;
+			View view = mHolidayLayout.getChildAt(i);
+			mHolidayLayoutItem[i] = (LinearLayout) view;
+			mHolidayIconArray[tmpNumber] = (TextView) view
+					.findViewById(R.id.mHolidayOne);
+			mHolidayIconArray[tmpNumber]
+					.setCompoundDrawablesWithIntrinsicBounds(null,
+							mResources.getDrawable(mHolidayIconId[tmpNumber]),
+							null, null);
+			mHolidayIconArray[tmpNumber].setText(mHolidayIconTextId[tmpNumber]);
+			mHolidayIconArray[tmpNumber].setTag(tmpNumber);
+			mHolidayIconArray[tmpNumber].setOnClickListener(this);
+			mHolidayIconArray[tmpNumber + 1] = (TextView) view
+					.findViewById(R.id.mHolidayTwo);
+			mHolidayIconArray[tmpNumber + 1]
+					.setCompoundDrawablesWithIntrinsicBounds(null, mResources
+							.getDrawable(mHolidayIconId[tmpNumber + 1]), null,
+							null);
+			mHolidayIconArray[tmpNumber + 1]
+					.setText(mHolidayIconTextId[tmpNumber + 1]);
+			mHolidayIconArray[tmpNumber + 1].setTag(tmpNumber + 1);
+			mHolidayIconArray[tmpNumber + 1].setOnClickListener(this);
+			mHolidayIconArray[tmpNumber + 2] = (TextView) view
+					.findViewById(R.id.mHolidayThree);
+			mHolidayIconArray[tmpNumber + 2]
+					.setCompoundDrawablesWithIntrinsicBounds(null, mResources
+							.getDrawable(mHolidayIconId[tmpNumber + 2]), null,
+							null);
+			mHolidayIconArray[tmpNumber + 2]
+					.setText(mHolidayIconTextId[tmpNumber + 2]);
+			mHolidayIconArray[tmpNumber + 2].setTag(tmpNumber + 2);
+			mHolidayIconArray[tmpNumber + 2].setOnClickListener(this);
+			mHolidayIconArray[tmpNumber + 3] = (TextView) view
+					.findViewById(R.id.mHolidayFour);
+			mHolidayIconArray[tmpNumber + 3]
+					.setCompoundDrawablesWithIntrinsicBounds(null, mResources
+							.getDrawable(mHolidayIconId[tmpNumber + 3]), null,
+							null);
+			mHolidayIconArray[tmpNumber + 3]
+					.setText(mHolidayIconTextId[tmpNumber + 3]);
+			mHolidayIconArray[tmpNumber + 3].setTag(tmpNumber + 3);
+			mHolidayIconArray[tmpNumber + 3].setOnClickListener(this);
+		}
+		for (int j = 0; j < mHolidayLayoutItem.length; j++) {
+			Log.i("xiao", "top = " + mHolidayLayoutItem[j].getTop());
+			TranslateAnimation translateAnimation = new TranslateAnimation(0,
+					0, (int) mHolidayLayoutItem[j].getTop(), mScreenHeight);
+			translateAnimation.setDuration(1000);
+			translateAnimation.setRepeatCount(0);
+			mHolidayLayoutTranslateDownAnimation[j] = translateAnimation;
+		}
+		for (int k = 0; k < mHolidayLayoutItem.length; k++) {
+			TranslateAnimation translateAnimation = new TranslateAnimation(0,
+					0, mScreenHeight, (int) mHolidayLayoutItem[k].getTop());
+			translateAnimation.setDuration(1000);
+			translateAnimation.setRepeatCount(0);
+			mHolidayLayoutTranslateUpAnimation[k] = translateAnimation;
+		}
+		mHolidayDetailTranslateDownAnimation = new TranslateAnimation(0, 0,
+				mHolidayDetailLayout.getTop(), mScreenHeight);
+		mHolidayDetailTranslateDownAnimation.setDuration(1000);
+		mHolidayDetailTranslateDownAnimation.setRepeatCount(0);
+		mHolidayDetailTranslateUpAnimation = new TranslateAnimation(0, 0,
+				mScreenHeight, mHolidayDetailLayout.getTop());
+		mHolidayDetailTranslateUpAnimation.setDuration(1000);
+		mHolidayDetailTranslateUpAnimation.setRepeatCount(0);
+	}
+
+	@Override
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		if (v.equals(mMainBack)) {
+			this.finish();
+			return;
+		}
+		if (v.equals(mHolidayDetailBack)) {
+			mHolidayDetailLayout
+					.startAnimation(mHolidayDetailTranslateDownAnimation);
+			mHolidayDetailTranslateDownAnimation.setAnimationListener(this);
+			// setDetailLayoutInvisible();
+			return;
+		}
+		if (v instanceof LinearLayout
+				&& mHolidayDetailArray[0].getText().toString().equals("短信")) {
+			TextView textView = (TextView) v
+					.findViewById(R.id.mHolidayDetailItem);
+			String text = textView.getText().toString();
+			Intent intent = new Intent();
+			Bundle bundle = new Bundle();
+			intent.setClass(getApplicationContext(), LocalSmsSendActivity.class);
+			bundle.putString("xm", text);
+			bundle.putString("phonenumber", "");
+			intent.putExtras(bundle);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intent);
+			return;
+		} else if (v instanceof LinearLayout
+				&& mHolidayDetailArray[0].getText().toString().equals("彩信")) {
+			TextView textView = (TextView) v
+					.findViewById(R.id.mHolidayDetailItem);
+			String text = textView.getText().toString();
+			String extStorageDirectory = Environment
+					.getExternalStorageDirectory().toString();
+				File file = new File(extStorageDirectory, "mms.gif");
+				String picturePath = file.getAbsolutePath();
+				FileOutputStream outStream;
+				InputStream inputStream;
+				int position = (Integer) v.getTag();
+				try {
+					AssetManager assetManager = getAssets();
+					inputStream = assetManager
+							.open(chineseToEnglish(mHolidayItem
+									.getHolidayName()) + position + ".gif");
+					outStream = new FileOutputStream(file);
+					byte[] bt = new byte[1024];
+					int count;
+					while ((count = inputStream.read(bt)) > 0) {
+						outStream.write(bt, 0, count);
+					}
+					inputStream.close();
+					outStream.flush();
+					outStream.close();
+				} catch (FileNotFoundException e) {
+					Log.i("xiao", "FileNotFoundException " + e.getMessage());
+					e.printStackTrace();
+					Toast.makeText(getApplicationContext(), R.string.holiday_mms_read_exception, Toast.LENGTH_SHORT).show();
+					return ;
+				} catch (IOException e) {
+					Log.i("xiao", "IOException " + e.getMessage());
+					Toast.makeText(getApplicationContext(), R.string.holiday_mms_read_exception, Toast.LENGTH_SHORT).show();
+					e.printStackTrace();
+					return ;
+				}
+			Intent intent = new Intent();
+			intent.setClass(getApplicationContext(), HolidayGridSendMms.class);
+			intent.putExtra("content", text);
+			intent.putExtra("picture", picturePath);
+			this.startActivity(intent);
+			return;
+		}
+
+		TextView textView = (TextView) v;
+		for (int j = 0; j < mHolidayDetailArray.length; j++) {
+			if (textView.equals(mHolidayDetailArray[j])) {
+				mPresentSelectionItem = j;
+				controlHolidayDetailItem();
+				controlHolidayDetailContent();
+				return;
+			}
+		}
+		Log.i("xiao", "tag = " + textView.getTag());
+		mPresentClickItem = (Integer) textView.getTag();
+		for (int i = 6; i >= 0; i--) {
+			mHolidayLayoutItem[i]
+					.startAnimation(mHolidayLayoutTranslateDownAnimation[i]);
+			if (i == 0) {
+				mHolidayLayoutTranslateDownAnimation[i]
+						.setAnimationListener(this);
+			}
+		}
+	}
+
+	@Override
+	public void onAnimationEnd(Animation arg0) {
+		// TODO Auto-generated method stub
+		if (arg0.equals(mHolidayDetailTranslateDownAnimation)) {
+			setDetailLayoutInvisible();
+		} else {
+			setDetailLayoutVisible();
+		}
+	}
+
+	@Override
+	public void onAnimationRepeat(Animation arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onAnimationStart(Animation arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	private void setDetailLayoutInvisible() {
+		mHolidayDetailLayout.setVisibility(View.INVISIBLE);
+		mHolidayLayout.setVisibility(View.VISIBLE);
+		for (int i = 6; i >= 0; i--) {
+			mHolidayLayoutItem[i]
+					.startAnimation(mHolidayLayoutTranslateUpAnimation[i]);
+		}
+	}
+
+	private void setDetailLayoutVisible() {
+		mHolidayDetailLayout.setVisibility(View.VISIBLE);
+		mHolidayLayout.setVisibility(View.INVISIBLE);
+		mHolidayDetailLayout.startAnimation(mHolidayDetailTranslateUpAnimation);
+		initDetailLayoutView();
+		mPresentSelectionItem = 0;
+		controlHolidayDetailItem();
+		controlHolidayDetailContent();
+	}
+  
+	private void initDetailLayoutView() {
+		List<HolidayItem> holidayList = HolidayDataSource
+				.getHolidayInfoFromXml(getBaseContext(),
+						mXmlArray[mPresentClickItem]);
+		mHolidayItem = null;
+		Log.i("xiao", "size = " + holidayList.size());
+		if (holidayList.size() > 0) {
+			Log.i("xiao", "size > 0");
+			mHolidayItem = holidayList.get(0);
+			mHolidayDetailArray[0].setText(mHolidayItem.getHolidayItem1Name()
+					.trim());
+			mHolidayDetailArray[1].setText(mHolidayItem.getHolidayItem2Name()
+					.trim());
+			mHolidayDetailArray[2].setText(mHolidayItem.getHolidayItem3Name()
+					.trim());
+			mHolidayDetailArray[3].setText(mHolidayItem.getHolidayItem4Name()
+					.trim());
+			mHolidayDetailArray[4].setText(mHolidayItem.getHolidayItem5Name()
+					.trim());
+			mHolidayOtherValue.setText(mHolidayItem.getHolidayItem2Value()
+					.trim());
+		}
+		Log.i("XXX", mHolidayDetailArray[0].getText().toString());
+		mMmsArray = new ArrayList<String>();
+		if (mHolidayDetailArray[0].getText().toString().equals("短信")) {
+			mMmsArray.addAll(mHolidayItem.getHolidayItem1Value());
+
+		} else {
+			if (mHolidayItem.getHolidayItem6Name() != null) {
+				mMmsArray.addAll(mHolidayItem.getHolidayItem6Value());
+
+			} else {
+				mMmsArray.addAll(mHolidayItem.getHolidayItem1Value());
+
+			}
+
+		}
+		mHolidayDetailAdapter = new HolidayDetailAdapter(mMmsArray,
+				mHolidayItem.getHolidayName());
+
+		mHolidayDetailIcon.setCompoundDrawablesWithIntrinsicBounds(null,
+				mResources.getDrawable(mHolidayIconBigId[mPresentClickItem]),
+				null, null);
+		// mHolidayDetailIcon.setCompoundDrawablesWithIntrinsicBounds(null,
+		// mResources.getDrawable(R.drawable.holiday1_big), null, null);
+		Log.i("xiao", "name = " + mHolidayItem.getHolidayName());
+		mHolidayDetailIcon.setText(mHolidayItem.getHolidayName());
+	}
+
+	private void controlHolidayDetailItem() {
+		for (int i = 0; i < 5; i++) {
+			if (i == mPresentSelectionItem) {
+				mHolidayDetailArray[i]
+						.setBackgroundResource(R.drawable.holiday_one_selected);
+			} else {
+				mHolidayDetailArray[i]
+						.setBackgroundResource(R.drawable.holiday_one);
+			}
+		}
+	}
+
+	private void controlHolidayDetailContent() {
+		controlHolidayDetailContent(mPresentSelectionItem);
+	}
+
+	private void controlHolidayDetailContent(int i) {
+		switch (i) {
+		case 0:
+			mHolidayMessageList.setVisibility(View.VISIBLE);
+			mHolidayOtherValue.setVisibility(View.INVISIBLE);
+			mHolidayMessageList.setAdapter(mHolidayDetailAdapter);
+			Utility.setListViewHeightBasedOnChildren(mHolidayMessageList);
+			break;
+		case 1:
+			mHolidayMessageList.setVisibility(View.INVISIBLE);
+			mHolidayOtherValue.setVisibility(View.VISIBLE);
+			mHolidayOtherValue.setText(mHolidayItem.getHolidayItem2Value());
+			break;
+		case 2:
+			mHolidayMessageList.setVisibility(View.INVISIBLE);
+			mHolidayOtherValue.setVisibility(View.VISIBLE);
+			mHolidayOtherValue.setText(mHolidayItem.getHolidayItem3Value());
+			break;
+		case 3:
+			mHolidayMessageList.setVisibility(View.INVISIBLE);
+			mHolidayOtherValue.setVisibility(View.VISIBLE);
+			mHolidayOtherValue.setText(mHolidayItem.getHolidayItem4Value());
+			break;
+		case 4:
+			mHolidayMessageList.setVisibility(View.INVISIBLE);
+			mHolidayOtherValue.setVisibility(View.VISIBLE);
+			mHolidayOtherValue.setText(mHolidayItem.getHolidayItem5Value());
+			break;
+		}
+	}
+
+	public class HolidayDetailAdapter extends BaseAdapter {
+
+		private List<String> mMessageList;
+		private String mHolidayName;
+
+		public HolidayDetailAdapter(List<String> pMessageList, String name) {
+			mMessageList = pMessageList;
+			mHolidayName = name;
+		}
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return mMessageList.size();
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return mMessageList.get(position);
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			if (mHolidayDetailArray[0].getText().toString().equals("短信")) {
+				View view = mInflater.inflate(R.layout.holiday_detail_item,
+						null);
+				TextView textView = (TextView) view
+						.findViewById(R.id.mHolidayDetailItem);
+				textView.setText(mMessageList.get(position));
+				view.setOnClickListener(HolidayGrid.this);
+				view.setTag(position);
+				return view;
+			} else {
+				View view = mInflater.inflate(
+						R.layout.holiday_detail_item_caixin, null);
+				TextView textView = (TextView) view
+						.findViewById(R.id.mHolidayDetailItem);
+				textView.setText(mMessageList.get(position));
+				ImageView imageView = (ImageView) view.findViewById(R.id.img);
+				AssetManager assetManager = getAssets();
+				InputStream inputStream = null;
+				try {
+					inputStream = assetManager
+							.open(chineseToEnglish(mHolidayName) + (++position)
+									+ ".gif");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageView.setBackgroundDrawable(Drawable.createFromStream(
+						inputStream, "tackpic"));
+				view.setOnClickListener(HolidayGrid.this);
+				view.setTag(position);
+				return view;
+			}
+
+		}
+
+	}
+
+	private String chineseToEnglish(String name) {
+		String englishName = null;
+		if (name.equals("春节"))
+			englishName = "spring";
+		if (name.equals("情人节"))
+			englishName = "valentine";
+		if (name.equals("元宵节"))
+			englishName = "lantern";
+		if (name.equals("端午节")) {
+			englishName = "dragon";
+		}
+		if (name.equals("儿童节")) {
+			englishName = "children";
+		}
+		if (name.equals("父亲节")) {
+			englishName = "father";
+		}
+		if (name.equals("妇女节")) {
+			englishName = "woman";
+		}
+		if (name.equals("感恩节")) {
+			englishName = "thanks";
+		}
+		if (name.equals("光棍节")) {
+			englishName = "bachelor";
+		}
+		if (name.equals("国庆节")) {
+			englishName = "national";
+		}
+		if (name.equals("建党节")) {
+			englishName = "found_party";
+		}
+		if (name.equals("建军节")) {
+			englishName = "found_army";
+		}
+		if (name.equals("教师节")) {
+			englishName = "teacher";
+		}
+		if (name.equals("劳动节")) {
+			englishName = "work";
+		}
+		if (name.equals("母亲节")) {
+			englishName = "mother";
+		}
+		if (name.equals("七夕节")) {
+			englishName = "lover";
+		}
+		if (name.equals("青年节")) {
+			englishName = "young";
+		}
+		if (name.equals("清明节")) {
+			englishName = "tomb_sweep";
+		}
+		if (name.equals("圣诞节")) {
+			englishName = "christmas";
+		}
+		if (name.equals("万圣节")) {
+			englishName = "halloween";
+		}
+		if (name.equals("愚人节")) {
+			englishName = "fool";
+		}
+		if (name.equals("植树节")) {
+			englishName = "plant";
+		}
+		if (name.equals("中秋节")) {
+			englishName = "mid_autumn";
+		}
+		if (name.equals("重阳节")) {
+			englishName = "double_nine";
+		}
+		return englishName;
+	}
+
+	public static class Utility {
+		public static void setListViewHeightBasedOnChildren(ListView listView) {
+			ListAdapter listAdapter = listView.getAdapter();
+			if (listAdapter == null) {
+				// pre-condition
+				return;
+			}
+
+			int totalHeight = 0;
+			for (int i = 0; i < listAdapter.getCount(); i++) {
+				View listItem = listAdapter.getView(i, null, listView);
+				listItem.measure(0, 0);
+				totalHeight += listItem.getMeasuredHeight();
+			}
+
+			ViewGroup.LayoutParams params = listView.getLayoutParams();
+			params.height = totalHeight
+					+ (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+			listView.setLayoutParams(params);
+		}
+	}
+
+	/*
+	 * @Override public boolean onKeyDown(int keyCode, KeyEvent event) { // TODO
+	 * Auto-generated method stub if (keyCode == KeyEvent.KEYCODE_BACK) {
+	 * AlertDialog.Builder builder = new AlertDialog.Builder( HolidayGrid.this);
+	 * builder.setTitle(R.string.exitdialog_title);
+	 * builder.setMessage(R.string.exitdialog_content);
+	 * builder.setPositiveButton(R.string.exitdialog_ok, new
+	 * DialogInterface.OnClickListener() {
+	 * 
+	 * @Override public void onClick(DialogInterface dialog, int which) { //
+	 * TODO Auto-generated method stub HolidayGrid.this.finish(); } });
+	 * builder.setNegativeButton(R.string.exitdialog_cancel, new
+	 * DialogInterface.OnClickListener() {
+	 * 
+	 * @Override public void onClick(DialogInterface dialog, int which) { //
+	 * TODO Auto-generated method stub
+	 * 
+	 * } }); builder.show(); } return super.onKeyDown(keyCode, event); }
+	 */
+	public void onResume() {
+		super.onResume();
+		MobclickAgent.onResume(this);
+	}
+
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& mHolidayDetailLayout.getVisibility() == View.VISIBLE) {
+			mHolidayDetailLayout
+					.startAnimation(mHolidayDetailTranslateDownAnimation);
+			mHolidayDetailTranslateDownAnimation.setAnimationListener(this);
+			return true;
+		}
+		return super.onKeyUp(keyCode, event);
+	}
+
+	public void onPause() {
+		super.onPause();
+		MobclickAgent.onPause(this);
+	}
+
+}

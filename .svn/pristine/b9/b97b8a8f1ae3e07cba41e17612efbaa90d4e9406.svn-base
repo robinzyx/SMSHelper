@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/adblock_scanning_bg" >
+    <RelativeLayout
+	    android:id="@+id/mTopLayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:background="@drawable/frame_upper_background">
+	    <TextView 
+	        android:id="@+id/mMainBack"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/main_back_selector"
+	        android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+	        android:gravity="center"
+	        android:text="@string/main_back"
+	        android:textColor="@color/white"
+	        />
+	    <TextView 
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:text="@string/main_smslib"
+	        android:textColor="#ffffff"
+        	android:textSize="20dip"
+	        />
+	</RelativeLayout>
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+	    <FrameLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_marginTop="10dip">
+			<LinearLayout 
+			    android:id="@+id/mHolidayLayout"
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:orientation="vertical">
+			    <include android:id="@+id/mHolidayLayoutOne" 
+			        layout="@layout/holiday_layout_item" />
+			    <include android:id="@+id/mHolidayLayoutTwo" 
+			        layout="@layout/holiday_layout_item" />
+			    <include android:id="@+id/mHolidayLayoutThree" 
+			        layout="@layout/holiday_layout_item" />
+			    <include android:id="@+id/mHolidayLayoutFour" 
+			        layout="@layout/holiday_layout_item" />
+			    <include android:id="@+id/mHolidayLayoutFive" 
+			        layout="@layout/holiday_layout_item" />
+			    <include android:id="@+id/mHolidayLayoutSix" 
+			        layout="@layout/holiday_layout_item" />
+			    <include android:id="@+id/mHolidayLayoutSeven" 
+			        layout="@layout/holiday_layout_item" />
+			</LinearLayout>
+			<LinearLayout
+			    android:id="@+id/mHolidayDetailLayout" 
+			    android:layout_width="match_parent"
+			    android:layout_height="match_parent"
+			    android:orientation="vertical"
+			    android:visibility="invisible">
+			    <RelativeLayout 
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content">
+			        <TextView 
+			            android:id="@+id/mHolidayDetailIcon"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_centerInParent="true"
+			            android:drawableTop="@drawable/holiday1_big"
+			            android:text="@string/holiday_one"
+			            android:gravity="center"/>
+			        <TextView 
+				        android:id="@+id/mHolidayDetailBack"
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:background="@drawable/holiday_detail_back_selector"
+				        android:layout_alignParentLeft="true"
+				        android:layout_centerVertical="true"
+				        android:gravity="center"
+				        android:textColor="@color/white"/>
+			        
+			        
+			    </RelativeLayout>
+			    <LinearLayout
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:orientation="vertical"
+			        android:layout_marginTop="10dip"
+			        android:gravity="center">
+			         <LinearLayout
+                        android:id="@+id/libmsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                         android:padding="10dip"
+                        android:gravity="center" >
+						
+                        <Button
+                            android:id="@+id/msg_lib"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dip"
+                            android:text="短信库" 
+                            android:padding="10dip"
+                           
+                            android:background="@drawable/msglibchoose"/>
+                        <TextView 
+                           android:layout_width="60dip"
+                           android:layout_height="wrap_content" />
+						
+                        <Button
+                            android:id="@+id/Colmsg_lib"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="30dip"
+                            android:text="彩信库" 
+                            android:padding="10dip"
+                            android:background="@drawable/msglibchoose"/>
+                    </LinearLayout>
+				    <LinearLayout 
+				        android:layout_width="wrap_content"
+				        android:layout_height="wrap_content"
+				        android:orientation="horizontal">
+				        <TextView 
+				            android:id="@+id/mHolidayDetailAbout"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:background="@drawable/holiday_one"
+				            android:text="@string/holiday_one"
+				            android:gravity="center"
+				            android:paddingLeft="5dip"
+				            android:paddingRight="5dip"
+				            android:layout_marginLeft="5dip"
+				            android:layout_marginRight="5dip"
+				            />
+				        <TextView 
+				            android:id="@+id/mHolidayDetailMessage"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:background="@drawable/holiday_one"
+				            android:text="@string/holiday_one"
+				            android:gravity="center"
+				            android:layout_marginLeft="5dip"
+				            android:layout_marginRight="5dip"
+				            android:visibility="gone"
+				            />
+				        <TextView 
+				            android:id="@+id/mHolidayDetailHistory"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:background="@drawable/holiday_one"
+				            android:text="@string/holiday_one"
+				            android:gravity="center"
+				            android:layout_marginLeft="5dip"
+				            android:layout_marginRight="5dip"
+				            />
+				        <TextView 
+				            android:id="@+id/mHolidayDetailWords"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:background="@drawable/holiday_one"
+				            android:text="@string/holiday_one"
+				            android:gravity="center"
+				            android:layout_marginLeft="5dip"
+				            android:layout_marginRight="5dip"
+				            />
+				        <TextView 
+				            android:id="@+id/mHolidayDetailSongs"
+				            android:layout_width="wrap_content"
+				            android:layout_height="wrap_content"
+				            android:background="@drawable/holiday_one"
+				            android:text="@string/holiday_one"
+				            android:gravity="center"
+				            android:layout_marginLeft="5dip"
+				            android:layout_marginRight="5dip"
+				            />
+				    </LinearLayout>
+				    <FrameLayout 
+				        android:id="@+id/mHolidayDetailOtherLayout"
+				        android:layout_width="fill_parent"
+				        android:layout_height="fill_parent"
+				        android:layout_gravity="center">
+				        <ListView 
+				            android:id="@+id/mHolidayMessageList"
+				            android:layout_width="fill_parent"
+				            android:layout_height="fill_parent"
+				            android:layout_gravity="center"/>
+				        <TextView 
+				            android:id="@+id/mHolidayOtherValue"
+				            android:layout_width="fill_parent"
+				            android:layout_height="fill_parent"
+				            android:layout_marginLeft="10dip"
+				            android:layout_marginRight="10dip"
+				            android:padding="2dip"/>
+				    </FrameLayout>
+				 </LinearLayout>
+			</LinearLayout>
+		</FrameLayout>
+	</ScrollView>
+</LinearLayout>

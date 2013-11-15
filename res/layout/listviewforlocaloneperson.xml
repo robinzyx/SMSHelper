@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/mTopLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/frame_upper_background" >
+
+        <TextView
+            android:id="@+id/mMainBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/main_back_selector"
+            android:gravity="center"
+            android:text="@string/main_back"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/app_name"
+            android:textColor="#ffffff"
+            android:textSize="20dip" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mMmsLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="3dip"
+        android:layout_marginRight="3dip" >
+
+        <TextView
+            android:id="@+id/mChooseMms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="1dip"
+                        android:gravity="center"
+            
+            android:background="@drawable/holiday_one"
+            android:text="@string/autoreply_choose" />
+
+        <TextView
+            android:id="@+id/mSendMms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="1dip"
+            android:background="@drawable/holiday_one"
+            android:gravity="center"
+            android:text="@string/send" />
+
+        <EditText
+            android:id="@+id/mMmsContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_margin="1dip"
+            android:layout_toLeftOf="@id/mSendMms"
+            android:layout_toRightOf="@id/mChooseMms"
+            android:background="@drawable/bg_hotword_indexer" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/mMmsLayout"
+        android:layout_below="@id/mTopLayout"
+        android:background="#ffffff"
+        android:divider="#ffffff"
+        android:dividerHeight="5dip"
+        android:padding="5dip" >
+    </ListView>
+
+</RelativeLayout>
